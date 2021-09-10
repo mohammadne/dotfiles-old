@@ -68,22 +68,18 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export JAVA_HOME=/usr/local/JDKs/jdk-15.0.2
-export FLUTTER=/usr/local/flutter/bin
-
 export GOROOT=/usr/local/go
-export GOPATH=$HOME/Develop/programming/go
+export GOPATH=$HOME/Develop/config/go
 export GOBIN=$GOPATH/bin
 
 # export COMPOSER=$HOME/.config/composer/vendor/bin
 
-export PATH=$PATH:$GOROOT/bin:$GOPATH:$GOBIN:$FLUTTER:$JAVA_HOME/bin
+export PATH=$PATH:$HOME/.local/bin:$GOROOT/bin:$GOPATH:$GOBIN
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

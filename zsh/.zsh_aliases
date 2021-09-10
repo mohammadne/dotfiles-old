@@ -7,13 +7,3 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 alias sshkey="xclip -selection clipboard < ~/.ssh/id_ed25519.pub && echo 'SSH Public Key copied to clipboard'"
 
 # Go
-
-
-# Python
-
-
-# Flutter
-alias flc="flutter clean"
-alias flpg="flutter pub get"
-alias flbrw="flutter packages pub run build_runner watch --delete-conflicting-outputs"
-alias flbrb="flutter packages pub run build_runner build --delete-conflicting-outputs"
