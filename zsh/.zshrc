@@ -40,8 +40,6 @@ autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.zsh_aliases
-
 # Colorize autosuggest
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
