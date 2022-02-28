@@ -15,7 +15,6 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 
-set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgray
 
 " Specify a directory for plugins
@@ -27,5 +26,3 @@ call plug#end()
 
 colorscheme gruvbox
 set background=dark
-
-
