@@ -2,10 +2,9 @@
 - sudo apt-get install git curl wget
 
 ## set your global username/email configuration
-- git config --global user.name "username"
-- git config --global user.email "email"
+- git config --global user.name "mohammadne"
+- git config --global user.email "mohammadne@mail.ru"
 
 ## To set repository-specific username/email configuration:
-- git config user.name "username"
-- git config user.email "email"
-
+- git config user.name "mohammadne"
+- git config user.email "mohammadne@mail.ru"
