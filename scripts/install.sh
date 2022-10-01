@@ -126,7 +126,7 @@ fi
 
 # -------------------------------------------------------------------------- Terminal themes
 
-for theme in "one-dark one-light" ; do
+for theme in "one-dark nord" ; do
     bash -c "$(curl -so- https://raw.githubusercontent.com/Gogh-Co/Gogh/master/themes/$theme.sh)"
 done
 
