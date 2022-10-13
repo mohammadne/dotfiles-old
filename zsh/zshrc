@@ -8,7 +8,7 @@ fi
 
 # --------------------------------------------------------------------------------------- Tmux
 
-# tns is a shorthand for tmux-new-session
+# tmux new session
 function tns() {
   session_name=$1
 
@@ -30,7 +30,7 @@ function tns() {
   fi
 }
 
-# tss is a shorthand for tmux-switch-session
+# tmux switch session
 function tss() {
   select select in $(tmux ls -F '#S'); do
     break;
@@ -75,8 +75,7 @@ source $ZSH/oh-my-zsh.sh # required to load oh-my-zsh
 
 # --------------------------------------------------------------------------------------- Development
 
-# instruct vim where to find your new vimrc configuration file
-export VIMINIT="source ~/.config/vim/vimrc"
+alias vim="nvim"
 
 # golang related
 export GOROOT=/usr/local/go
