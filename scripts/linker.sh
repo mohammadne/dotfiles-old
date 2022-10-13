@@ -43,8 +43,8 @@ backup "directory" ~/.config/tmux
 ln -s "$dotfiles_home/tmux" ~/.config/tmux
 
 # vim
-backup "directory" ~/.config/vim
-ln -s "$dotfiles_home/vim" ~/.config/vim
+backup "file" ~/.vimrc
+ln -s "$dotfiles_home/vim/vimrc" ~
 
 # nvim
 backup "directory" ~/.config/nvim
