@@ -1,16 +1,27 @@
-# TMUX
+# [TMUX](https://github.com/tmux/tmux/wiki/Installing)
 
-## install [tmux](https://github.com/tmux/tmux/wiki/Installing)
+## installation
 
-``` bash
-sudo dnf install -y tmux
-```
+1. install dependencies
 
-## install [tmux plugin manager](https://github.com/tmux-plugins/tpm)
+    ``` bash
+    # fedora
+    sudo dnf install -y tmux
 
-``` bash
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
-```
+    # mac
+    ```
+
+2. install [tmux plugin manager](https://github.com/tmux-plugins/tpm)
+
+    ``` bash
+    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+    ```
+
+3. symlink config files (directory)
+
+    ``` bash
+    ln -s ~/Develop/dotfiles/tmux ~/.config/tmux
+    ```
 
 ## how to add a theme config
 
@@ -27,9 +38,3 @@ hover_fg="" # foreground color over hover_bg
 inactive="" # main inactive color
 active="" # active color
 ```
-
-## copy config files
-
-- `.tmux.conf` --> `~/`
-
-- `themes` --> `~/.tmux`
