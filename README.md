@@ -23,15 +23,17 @@
 
 ## installation
 
-1. install & configure git credentials
-
-2. configure ssh keys & config
-
-3. clone the repository
+1. clone the repository
 
     ``` bash
-    cd ~/Develop/dotfiles && git clone git@github.com:mohammadne/dotfiles.git
+    # use this hack in order to get the repository without pre ssh-credentials
+    cd ~/Develop && git clone https://github.com/mohammadne/dotfiles.git
+    git remote set-url origin git@github.com:mohammadne/dotfiles.git
     ```
+
+2. install & configure git credentials
+
+3. configure ssh keys & config
 
 4. install and configure appropriate tools
 
