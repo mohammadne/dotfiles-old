@@ -27,8 +27,8 @@
 
     ``` bash
     # use this hack in order to get the repository without pre ssh-credentials
-    cd ~/Develop && git clone https://github.com/mohammadne/dotfiles.git
-    git remote set-url origin git@github.com:mohammadne/dotfiles.git
+    git clone https://github.com/mohammadne/dotfiles.git ~/Develop/dotfiles
+    cd ~/Develop/dotfiles && git remote set-url origin git@github.com:mohammadne/dotfiles.git
     ```
 
 2. install & configure git credentials
