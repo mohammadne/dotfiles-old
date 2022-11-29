@@ -105,7 +105,7 @@ nvim +PackerSync +qa || echo "Something went wrong installing nvim plugins."
 # -------------------------------------------------------------------------- Fonts
 
 font_family="FiraCode"
-font_weights="Bold SemiBold Medium Retina Regular Light"
+font_weights="Bold SemiBold Medium Regular Light"
 font_repository="https://github.com/ryanoasis/nerd-fonts"
 
 font_home=$([ "$platform" == "Mac" ] && echo ~/Library/Fonts || echo ~/.local/share/fonts)
