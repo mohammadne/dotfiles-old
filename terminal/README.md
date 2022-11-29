@@ -1,24 +1,12 @@
 # Terminal
 
-## MacOS
-
-- install developer tools
-
-``` bash
-xcode-select --install
-```
-
-- install [Homebrew](https://brew.sh/)
-
-``` bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
 ## Color Scheme
 
 - [Gogh](https://github.com/Gogh-Co/Gogh) is a great place
 
-> I love to install [OneDark](https://github.com/joshdick/onedark.vim) [Nord](https://github.com/arcticicestudio/nord) & [Gruvbox Dark](https://github.com/morhetz/gruvbox) options.
+> I love [OneDark](https://github.com/joshdick/onedark.vim) theme.
+
+- install interactively
 
 ``` bash
 # Linux Gnome Terminal
@@ -27,3 +15,9 @@ bash -c "$(wget -qO- https://git.io/vQgMr)"
 # MacOS iTerm
 bash -c "$(curl -sLo- https://git.io/vQgMr)"
 ```
+
+- install declaratively
+
+    ``` bash
+    bash -c "$(curl -so- https://raw.githubusercontent.com/Gogh-Co/Gogh/master/themes/one-dark.sh)"
+    ```

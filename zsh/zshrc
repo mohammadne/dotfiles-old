@@ -75,8 +75,6 @@ source $ZSH/oh-my-zsh.sh # required to load oh-my-zsh
 
 # --------------------------------------------------------------------------------------- Development
 
-alias vim="nvim"
-
 # golang related
 export GOROOT=/usr/local/go
 export GOPATH=~/.local/share/go
