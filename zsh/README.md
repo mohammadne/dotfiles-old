@@ -1,50 +1,49 @@
 # ZSH
 
-## install zsh
+## installation
 
-``` bash
-# install dependencies
-sudo dnf install -y zsh curl wget
+1. install dependencies
 
-# change default shell
-sudo usermod --shell "$(which zsh)" "$(whoami)"
-```
+    ``` bash
+    # fedora
+    sudo dnf install -y zsh curl wget
 
-## install [oh-my-zsh](https://ohmyz.sh/#install)
+    # mac
+    ```
 
-``` bash
-# install via curl
-ZSH=~/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
+2. change default shell
 
-## install zsh-users custom plugins
+    ``` bash
+    # fedora
+    sudo usermod --shell "$(which zsh)" "$(whoami)"
 
-``` bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/zsh-users/zsh-completions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-completions"
-git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
-git clone https://github.com/zsh-users/zsh-history-substring-search "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-history-substring-search"
-```
+    # mac
+    sudo dscl . -create /Users/$USER UserShell "$(which zsh)"
+    ```
 
-## copy config files
+3. install [oh-my-zsh](https://ohmyz.sh/#install)
 
-- `p10k` --> `~/.config`
+    ``` bash
+    # create ~/.config directory to hold zsh's configurations.
+    mkdir -p ~/.config
 
-- `.zshrc` --> `~/`
+    # install via curl
+    ZSH=~/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    ```
 
-- `.aliases.zsh` --> `~/`
+4. install zsh-users custom plugins
 
-## Features
+    ``` bash
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM}/themes/powerlevel10k
+    git clone https://github.com/zsh-users/zsh-completions "${ZSH_CUSTOM}/plugins/zsh-completions"
+    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting"
+    git clone https://github.com/zsh-users/zsh-history-substring-search "${ZSH_CUSTOM}/plugins/zsh-history-substring-search"
+    ```
 
-- Completions
+5. symlink config files
 
-- Auto-suggestions
-
-- Command validation
-
-- Directory history
-
-- Git feedback
-
-- Persistence
+    ```bash
+    ln -s "zsh/zshrc" ~/.zshrc
+    ln -s "zsh/p10k.zsh" ~/.config/p10k.zsh
+    ```
