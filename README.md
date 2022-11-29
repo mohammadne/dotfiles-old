@@ -26,7 +26,7 @@
 1. clone the repository
 
     ``` bash
-    git clone "git@github.com/mohammadne/dotfiles.git" ~/.dotfiles
+    git clone "git@github.com/mohammadne/dotfiles.git" ~/Develop/dotfiles
     ```
 
 2. run appropriate scripts
