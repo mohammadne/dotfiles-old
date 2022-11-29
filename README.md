@@ -23,13 +23,17 @@
 
 ## installation
 
-1. clone the repository
+1. install & configure git credentials
+
+2. configure ssh keys & config
+
+3. clone the repository
 
     ``` bash
-    cd ~/Develop/dotfiles && git@github.com:mohammadne/dotfiles.git
+    cd ~/Develop/dotfiles && git clone git@github.com:mohammadne/dotfiles.git
     ```
 
-2. run appropriate scripts
+4. install and configure appropriate tools
 
    - `cloner`: clones dotfiles repository in the place.
 
