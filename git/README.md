@@ -2,13 +2,17 @@
 
 ## installation
 
-``` bash
-sudo dnf install -y wget curl git
-```
+1. install dependencies
 
-## credentials
+    ``` bash
+    # fedora
+    sudo dnf install -y wget curl git
 
-```bash
-git config --global user.email "mohammadne.dev@gmail.com"
-git config --global user.name "mohammadne"
-```
+    # mac
+    ```
+
+2. symlink credentials
+
+    ``` bash
+    ln -s "git/gitconfig" ~/.gitconfig
+    ```
