@@ -18,5 +18,5 @@
 1. symlink config file
 
     ``` bash
-    ln -s "ssh/config" ~/.ssh/config
+    ln -s ~/Develop/dotfiles/ssh/config ~/.ssh/config
     ```

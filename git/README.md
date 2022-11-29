@@ -14,5 +14,5 @@
 2. symlink credentials
 
     ``` bash
-    ln -s "git/gitconfig" ~/.gitconfig
+    ln -s ~/Develop/dotfiles/git/gitconfig ~/.gitconfig
     ```
