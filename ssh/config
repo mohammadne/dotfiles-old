@@ -1,4 +1,4 @@
-# Snapp! account
+# Snapp account
 Host gitlab.snapp.ir
    IdentityFile ~/.ssh/id_ed25519_snapp
    User mohammad.nasresfahani
