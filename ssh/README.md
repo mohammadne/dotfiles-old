@@ -4,7 +4,13 @@
 
 ## configuration
 
-1. generate SSH key for each account
+1. install dependencies
+
+    ``` bash
+    sudo dnf install xclip -y
+    ```
+
+2. generate SSH key for each account
 
     ``` bash
     cd ~/.ssh # change working directory
@@ -15,7 +21,7 @@
     ssh-keygen -t ed25519 -C "mohammad.nasresfahani@snapp.cab"
     ```
 
-1. symlink config file
+3. symlink config file
 
     ``` bash
     ln -s ~/Develop/dotfiles/ssh/config ~/.ssh/config
