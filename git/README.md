@@ -9,6 +9,7 @@
     sudo dnf install -y wget curl git
 
     # mac
+    brew install git
     ```
 
 2. symlink credentials

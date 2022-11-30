@@ -5,10 +5,11 @@
 1. install dependencies
 
     ``` bash
-    # fedora
-    sudo dnf install -y tmux
+    # Fedora
+    sudo dnf install -y tmux python3-tmuxp
 
-    # mac
+    # MacOS
+    brew install tmux
     ```
 
 2. install [tmux plugin manager](https://github.com/tmux-plugins/tpm)

@@ -7,7 +7,11 @@
 1. install dependencies
 
     ``` bash
+    # Fedora
     sudo dnf install xclip -y
+
+    # MacOS
+    brew install xclip
     ```
 
 2. generate SSH key for each account
