@@ -76,8 +76,8 @@ source $ZSH/oh-my-zsh.sh # required to load oh-my-zsh
 # --------------------------------------------------------------------------------------- Development
 
 # golang related
-export GOROOT=/usr/local/go
-export GOPATH=~/.local/share/go
+# export GOROOT=/usr/local/go
+# export GOPATH=~/.local/share/go
 
 # add homebrew path on MacOS
 if [[ "$(uname)" = 'Darwin' ]]; then

@@ -23,7 +23,7 @@
     nvim +PackerSync +qa
     ```
 
-3. symlink newvim configuraton (directory)
+3. symlink neovim configuraton (directory)
 
     ``` bash
     ln -s ~/Develop/dotfiles/nvim ~/.config/nvim
