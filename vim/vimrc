@@ -94,9 +94,6 @@ call plug#end()
 
 " -------------------------------------------------------------------------- MAPPINGS
 
-" Set the backslash as the leader key.
-let mapleader = "\"
-
 " Map the CTRL+t key to toggle NERDTree open and close.
 nnoremap <C-t> :NERDTreeToggle<CR>
 
@@ -104,8 +101,8 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 " CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
 noremap <c-up> <c-w>+
 noremap <c-down> <c-w>-
-noremap <c-left> <c-w>>
-noremap <c-right> <c-w><
+noremap <c-left> <c-w><
+noremap <c-right> <c-w>>
 
 " -------------------------------------------------------------------------- COLOR SCHEME
 
@@ -121,13 +118,14 @@ colorscheme onedark
 
 " -------------------------------------------------------------------------- STATUS LINE
 
-" Activate gruvbox airline theme
+" activate airline theme
 let g:airline_theme='onedark'
 
 " disable trailing section
 let g:airline#extensions#whitespace#enabled = 0
 
+" enable powerline_fonts
 let g:airline_powerline_fonts = 1
 
 " customize z section
-let g:airline_section_z = "%p%% %l/%L : %c"
+let g:airline_section_z = "row:\ %l\ col:\ %c\ percent:\ %p%%"
