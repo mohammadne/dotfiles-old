@@ -85,7 +85,7 @@ if [[ "$(uname)" = 'Darwin' ]]; then
 fi
 
 # export $PATH
-export PATH=$PATH:$HOME/.local/bin:$GOROOT/bin:$GOPATH:$GOPATH/bin
+export PATH=$PATH:$HOME/.local/bin:home/mohammadne/.cargo/bin
 
 # --------------------------------------------------------------------------------------- Miscellaneous
 

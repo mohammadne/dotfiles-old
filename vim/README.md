@@ -19,3 +19,9 @@
     ``` bash
     ln -s ~/Develop/dotfiles/vim/vimrc ~/.vimrc
     ```
+
+4. install plugins
+
+    ``` bash
+    vim +PlugInstall +qa || echo "Something went wrong installing vim plugins."
+    ```
