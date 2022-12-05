@@ -50,6 +50,7 @@ export ZSH="$HOME/.config/oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k" # Set oh-my-zsh theme
 
+# list of all plugins: https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
 plugins=(
   # zsh-users plugins
   history-substring-search # ZSH port of Fish history search. Begin typing command, use up arrow to select previous use
@@ -58,13 +59,19 @@ plugins=(
   zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh
   
   # theming
-  colored-man-pages # Self-explanatory
+  colored-man-pages
   
   # development plugins
-  git # https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git
-  docker # docker auto-completions
-  kubectl # kubernetes auto-completions
+  git
+  docker
+  kubectl
+  ansible
+  vagrant
+  
+  # programming languages
   golang # go language support
+  python
+  rust
 )
 
 autoload -U compinit && compinit # reload completions for zsh-completions
@@ -75,9 +82,7 @@ source $ZSH/oh-my-zsh.sh # required to load oh-my-zsh
 
 # --------------------------------------------------------------------------------------- Development
 
-# golang related
-# export GOROOT=/usr/local/go
-# export GOPATH=~/.local/share/go
+export CARGOPATH=~/.cargo/bin
 
 # add homebrew path on MacOS
 if [[ "$(uname)" = 'Darwin' ]]; then
@@ -85,7 +90,7 @@ if [[ "$(uname)" = 'Darwin' ]]; then
 fi
 
 # export $PATH
-export PATH=$PATH:$HOME/.local/bin:home/mohammadne/.cargo/bin
+export PATH=$PATH:$HOME/.local/bin:$CARGOPATH
 
 # --------------------------------------------------------------------------------------- Miscellaneous
 
