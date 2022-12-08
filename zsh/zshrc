@@ -23,12 +23,13 @@ function tns() {
 # tmux select session (delete current one)
 function tss() {
   # use built in choose-tree if being inside a session
-  if [ ! -z "$TMUX" ]; then tmux choose-tree -Zs; exit 0; fi # TODO fix this line
+  if [ ! -z "$TMUX" ]; then (tmux choose-tree -Zs &); return; fi
 
-  sessions=$(tmux ls -F '#S')
+  # get session names (ignore error if no session exist)
+  sessions=$(tmux ls -F '#S' 2> /dev/null)
 
   # return if no session exist
-  if [ -z "$sessions" ]; then echo "there is no session available"; exit 0; fi
+  if [ -z "$sessions" ]; then echo "there is no session available"; return; fi
 
   # select a session between sessions
   select session_name in $sessions; do break; done
