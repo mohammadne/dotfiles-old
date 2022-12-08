@@ -4,10 +4,8 @@
 function tns() {
   session_name=$1
 
-  if [ -z "$session_name" ]; then
-    # get basename of the current directory
-    session_name=${PWD##*/}
-  fi
+  # get basename of the current directory
+  if [ -z "$session_name" ]; then session_name=${PWD##*/}; fi
 
   # create a new new-session based on current working directory
   if ! tmux has-session -t "$session_name" 2> /dev/null; then
@@ -20,6 +18,26 @@ function tns() {
   else
     tmux switch-client -t "$session_name"
   fi
+}
+
+# tmux select session (delete current one)
+function tss() {
+  # use built in choose-tree if being inside a session
+  if [ ! -z "$TMUX" ]; then tmux choose-tree -Zs; exit 0; fi # TODO fix this line
+
+  sessions=$(tmux ls -F '#S')
+
+  # return if no session exist
+  if [ -z "$sessions" ]; then echo "there is no session available"; exit 0; fi
+
+  # select a session between sessions
+  select session_name in $sessions; do break; done
+
+  # return in case of invalid selection
+  if [ -z "$session_name" ]; then echo "invalid session selected"; exit 1; fi
+
+  # switch into new session
+  tns "$session_name"
 }
 
 # tmux kill session (delete current one)
