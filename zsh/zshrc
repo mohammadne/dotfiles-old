@@ -106,15 +106,25 @@ source $ZSH/oh-my-zsh.sh # required to load oh-my-zsh
 
 # --------------------------------------------------------------------------------------- Development
 
-export CARGOPATH=~/.cargo/bin
-
 # add homebrew path on MacOS
 if [[ "$(uname)" = 'Darwin' ]]; then
   PATH=$PATH:/opt/homebrew/bin
 fi
 
+# add cargo if cargo has been installed
+if command -v cargo &> /dev/null; then
+  export CARGOPATH=~/.cargo/bin
+  PATH=$PATH:$CARGOPATH
+fi
+
+# add gopath if go has been installed
+if command -v go &> /dev/null; then
+  export GOPATH=$(go env GOPATH)
+  PATH=$PATH:$GOPATH
+fi
+
 # export $PATH
-export PATH=$PATH:$HOME/.local/bin:$CARGOPATH
+export PATH=$PATH:$HOME/.local/bin
 
 # --------------------------------------------------------------------------------------- Miscellaneous
 
