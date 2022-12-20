@@ -26,7 +26,7 @@
 1. clone the repository
 
     ``` bash
-    mkdir -p "$HOME/Documents/Git/$USER" && cd "$HOME/Documents/Git/$USER"
+    mkdir -p "$HOME/Documents/Git" && cd "$HOME/Documents/Git"
     git clone https://github.com/mohammadne/dotfiles.git && cd ./dotfiles
     git remote set-url origin git@github.com:mohammadne/dotfiles.git
     ```
