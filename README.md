@@ -7,23 +7,22 @@
 ╚═╝ ╚═════╝   ╚══════╝     ╚═╝    ╚═╝      ╚═╝ ╚══════╝ ╚══════╝ ╚══════╝
 ```
 
-> personal dotfiles configuration files.
+![GitHub](https://img.shields.io/github/license/mohammadne/dotfiles?logo=gnu&style=flat-square)
+[![Ansible](https://img.shields.io/badge/ansible-ready-black?logo=ansible&style=flat-square)](https://github.com/mohammadne-me/ansible-role)
+![GitHub repo size](https://img.shields.io/github/repo-size/mohammadne/dotfiles?style=flat-square)
+
+> This repository contains my personal configurations for Arch Linux (with sway window manager) and apple OSX.
 >
-> for more detailed instruction on how to install and customize each tool, checkout its readme file. there is detailed instruction there.
+> First, thank you for your visiting. A dotfiles repository is a personal repository, with it, you can manage your configuration between your systems, so I make this repository, a template repository, so you can easily start your personal one from it.
 >
 > if you this repository was helpful, please don't forget to support & star it.
 
-## Supported Platforms
+## Installation
 
-> I'm working with this 2 platform, so the configurations are tested on both of them, but if you are using other platforms, it's appriciated to open a [pull request](https://github.com/mohammadne/dotfiles/pulls).
+![Compatibility](https://img.shields.io/badge/works%20on-arch-blue?logo=archlinux&style=for-the-badge)
+![Compatibility](https://img.shields.io/badge/works%20on-macos-white?logo=macos&style=for-the-badge)
 
-- Arch Linux 💚
-
-- MacOS
-
-## installation
-
-1. clone the repository
+1. create a basic directory structure and clone the dotfiles repository
 
     ``` bash
     mkdir -p "$HOME/Documents/Git" && cd "$HOME/Documents/Git"
@@ -42,3 +41,7 @@
    - `install`: installs the dependencies needed in the dotfiles.
 
    - `linker`: create symlinks to the dotfile configs.
+
+## Window Manager
+
+I am using `sway` as my primary window manager. This repository structured around creating soft-links and because of that the configurations between these window managers are gathered in `sway/`.
