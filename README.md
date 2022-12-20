@@ -17,7 +17,7 @@
 
 > I'm working with this 2 platform, so the configurations are tested on both of them, but if you are using other platforms, it's appriciated to open a [pull request](https://github.com/mohammadne/dotfiles/pulls).
 
-- ARCH 💚
+- Arch Linux 💚
 
 - MacOS
 
