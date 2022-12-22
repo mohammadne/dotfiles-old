@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-	echo -n "alacritty terminal with jetbrains mono font and configuration"
+	echo -n "tmux & tmuxp configuration"
 }
 
 install() {

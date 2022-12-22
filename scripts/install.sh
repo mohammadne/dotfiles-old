@@ -57,6 +57,44 @@ _config() {
 	fi
 }
 
+_additionals() {
+	additionals=$*
+
+	if [ -z "$additionals" ]; then return; fi
+
+	msg "additionals: $additionals"
+
+	for additional in $additionals; do
+		if yes_or_no "$script" "do you want to install $additional as an additional package?"; then
+			local options="-d"
+			if [ $yes_to_all = true ]; then
+				options="$options -y"
+			fi
+
+			"$dotfiles_root/install.sh" "$options" "$additional"
+		fi
+	done
+}
+
+_dependencies() {
+	dependencies=$*
+
+	if [ -z "$dependencies" ]; then return; fi
+
+	msg "dependencies: $dependencies"
+
+	if yes_or_no "$script" "do you want to install dependencies?"; then
+		local options="-d"
+		if [ $yes_to_all = true ]; then
+			options="$options -y"
+		fi
+
+		for dependency in $dependencies; do
+			"$dotfiles_root/install.sh" "$options" "$dependency"
+		done
+	fi
+}
+
 _run() {
 	# global variable indicates force in specific script and runs script with root
 	local force=false
@@ -114,7 +152,7 @@ _run() {
 	start=$(date +%s)
 
 	# shellcheck disable=1090
-	source "$dotfiles_root/scripts/$script.sh" 2>/dev/null || {
+	source "$dotfiles_root/src/terminal/$script.sh" 2>/dev/null || {
 		echo "404 script not found"
 		exit
 	}
