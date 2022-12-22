@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-	echo -n "installs required packages for having a working system"
+	echo -n "installs vim text editor"
 }
 
 install() {
@@ -9,5 +9,5 @@ install() {
 }
 
 config() {
-	
+	dotfile "vim" "vimrc"
 }
