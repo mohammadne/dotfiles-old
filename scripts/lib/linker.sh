@@ -7,7 +7,7 @@ yes_to_all=${yes_to_all:-false}
 # parameter 1: module name - string
 # parameter 2: file name - string
 # parameter 3 [default = true]: add dot into the destination file (consider it as hidden)
-dotfile() {
+function dotfile() {
 	local module=$1
 	local file=${2:-""}
 	local is_hidden=${3:-true}
@@ -32,27 +32,24 @@ dotfile() {
 # parameter 1: module name - string
 # parameter 2: file name - string - optional
 # parameter 3: directory - string - optional
-configfile() {
+function configfile() {
 	local module=$1
 	local src_file=${2:-""}
 	local src_dir=${3:-""}
 
-	if [ ! -e "$HOME/.config" ]; then
-		mkdir "$HOME/.config"
-	fi
+	if [ ! -e "$HOME/.config" ]; then mkdir "$HOME/.config"; fi
 
 	if [ -n "$src_file" ]; then
 		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module/$src_file"
 		local dst_file="$module/$src_file"
 
-		if [ ! -d "$HOME/.config/$module" ]; then
-			mkdir "$HOME/.config/$module"
-		fi
+		if [ ! -d "$HOME/.config/$module" ]; then mkdir "$HOME/.config/$module"; fi
 	else
 		src_file=$module
 		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module"
 		local dst_file="$module"
 	fi
+
 	local dst_path="$HOME/.config/$dst_file"
 
 	linker "$module" "$src_path" "$dst_path"
@@ -62,7 +59,7 @@ configfile() {
 # parameter 1: module name - string which is used only in logs.
 # parameter 2: source path - string
 # parameter 3: destination path - string
-linker() {
+function linker() {
 	local module=$1
 	local src_path=$2
 	local dst_path=$3
@@ -98,7 +95,7 @@ linker() {
 # parameter 1: module name - string
 # parameter 2: file name - string
 # parameter 3: directory - string - optional
-configrootfile() {
+function configrootfile() {
 	local module=$1
 	local src_file=$2
 	local src_dir=${3:-""}
@@ -122,7 +119,7 @@ configrootfile() {
 # parameter 1: module name - string
 # parameter 2: file name - string
 # parameter 3: directory - string - optional
-configsystemd() {
+function configsystemd() {
 	local module=$1
 	local src_file=$2
 	local src_dir=${3:-""}

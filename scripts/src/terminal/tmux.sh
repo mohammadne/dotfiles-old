@@ -7,7 +7,12 @@ usage() {
 install() {
 	require_pacman tmux tmuxp
 }
-
+ 
 config() {
-	configfile alacritty
+	ln -s ~/Develop/dotfiles/tmux ~/.config/tmux
+
+	message "tmux" "installing tmux plugins"
+	git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+	~/.config/tmux/plugins/tpm/bin/install_plugins
 }
+ 

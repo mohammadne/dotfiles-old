@@ -7,25 +7,25 @@ set -eu
 program_name=$0
 
 # a global variable that points to dotfiles root directory, used also in scripts.
-dotfiles_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+dotfiles_root="$(cd "$(dirname "${BASH_SOURCE[0]}")"/.. && pwd)"
 
-source "$dotfiles_root/lib/header.sh"
-source "$dotfiles_root/lib/message.sh"
-source "$dotfiles_root/lib/linker.sh"
+source "$dotfiles_root/scripts/lib/header.sh"
+source "$dotfiles_root/scripts/lib/message.sh"
+source "$dotfiles_root/scripts/lib/linker.sh"
 
 message "pre" "home directory found at $HOME"
 message "pre" "dotfiles found at $dotfiles_root"
 
 trap '_end' INT
 
-_end() {
+function _end() {
 	echo "see you in a better tomorrow [you signal start.sh execuation]"
 	exit
 }
 
 # -------------------------------------------------------------------------------> functions
 
-_usage() {
+function _usage() {
 	echo ""
 	echo "usage: $program_name [-y] [-h] [-f] script [script options]"
 	echo "  -f   force"
@@ -35,7 +35,7 @@ _usage() {
 	echo ""
 }
 
-_install() {
+function _install() {
 	if ! command -v pacman &> /dev/null; then
 		msg " linux with pacman is not installed, there is nothing to do"
 		exit
@@ -51,13 +51,13 @@ _install() {
 	return
 }
 
-_config() {
+function _config() {
 	if declare -f config >/dev/null; then
 		config "$@"
 	fi
 }
 
-_additionals() {
+function _additionals() {
 	additionals=$*
 
 	if [ -z "$additionals" ]; then return; fi
@@ -76,7 +76,7 @@ _additionals() {
 	done
 }
 
-_dependencies() {
+function _dependencies() {
 	dependencies=$*
 
 	if [ -z "$dependencies" ]; then return; fi
@@ -95,7 +95,7 @@ _dependencies() {
 	fi
 }
 
-_run() {
+function _run() {
 	# global variable indicates force in specific script and runs script with root
 	local force=false
 
