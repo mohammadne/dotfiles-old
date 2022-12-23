@@ -1,0 +1,20 @@
+---
+name: install
+on:
+  push:
+    paths:
+      - .github/workflows/install.yaml
+      - scripts/src/base.sh
+      - scripts/install.sh
+
+jobs:
+  basic-arch:
+    runs-on: archarm_latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install base
+        run: ./scripts/install.sh -y base
+      - name: validate symbolic links
+        run: test "$(readlink -f ~/.config/git)" = "$(pwd)/configs/git"
+      - name: validate installation of requirements on both shell
+        run: bash -c hash nvim batcat bmon
