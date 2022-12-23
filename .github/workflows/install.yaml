@@ -21,7 +21,10 @@ jobs:
           distro: ubuntu22.04
           githubToken: ${{ github.token }}
           run: |
-            echo "hi"
+            result1=$(test "$(readlink -f ~/.config/git)" = "$(pwd)/configs/git")
+            echo "validate=$result1" >> $GITHUB_ENV
+            result2=$(bash -c hash nvim batcat bmon)
+            echo "dependencies=$result2" >> $GITHUB_ENV
       - name: Get the output
         run: |
           echo "The validate output was: ${{ env.validate }}"
