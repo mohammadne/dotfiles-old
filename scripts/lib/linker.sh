@@ -3,58 +3,6 @@
 dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 yes_to_all=${yes_to_all:-false}
 
-# creates a config file that resides in the `home` directory, and provides a soft link to it.
-# parameter 1: module name - string
-# parameter 2: file name - string
-# parameter 3 [default = true]: add dot into the destination file (consider it as hidden)
-function dotfile() {
-	local module=$1
-	local file=${2:-""}
-	local is_hidden=${3:-true}
-
-	if $is_hidden; then
-		local dst_file=".${file:-$module}"
-	else
-		local dst_file="${file:-$module}"
-	fi
-
-	local src_file="$file"
-
-	local dst_path="$HOME/$dst_file"
-	local src_path="$dotfiles_root/$module/$src_file"
-
-	linker "$module" "$src_path" "$dst_path"
-}
-
-# creates a config file that resides in the `.config` directory, and provides a soft link to it.
-# for better organization of the repository, modules can be gathered into a directory, in these cases
-# the third parameter is used.
-# parameter 1: module name - string
-# parameter 2: file name - string - optional
-# parameter 3: directory - string - optional
-function configfile() {
-	local module=$1
-	local src_file=${2:-""}
-	local src_dir=${3:-""}
-
-	if [ ! -e "$HOME/.config" ]; then mkdir "$HOME/.config"; fi
-
-	if [ -n "$src_file" ]; then
-		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module/$src_file"
-		local dst_file="$module/$src_file"
-
-		if [ ! -d "$HOME/.config/$module" ]; then mkdir "$HOME/.config/$module"; fi
-	else
-		src_file=$module
-		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module"
-		local dst_file="$module"
-	fi
-
-	local dst_path="$HOME/.config/$dst_file"
-
-	linker "$module" "$src_path" "$dst_path"
-}
-
 # linker does the soft linking, it has a yes_to_all parameter which you can use to skip the question phase
 # parameter 1: module name - string which is used only in logs.
 # parameter 2: source path - string
@@ -64,75 +12,28 @@ function linker() {
 	local src_path=$2
 	local dst_path=$3
 
-	local create_link=true
-
-	if [ -e "$dst_path" ] || [ -L "$dst_path" ]; then
+	if [ -e "$dst_path" ] || [ -d "$dst_path" ] || [ -L "$dst_path" ]; then
 		message "$module" "$dst_path has already existed"
 
+		# skips if dst_path points to the correct src_path file (directory)
 		if [[ $src_path = $(readlink "$dst_path") ]]; then
 			message "$module" "$dst_path points to the correct location"
-			create_link=false
 			return
 		fi
 
+		# remove and backup old dst_path file (directory)
 		if yes_or_no "$module" "do you want to remove $dst_path?"; then
-			rm -R "$dst_path"
+			if yes_or_no "$module" "do you want to backup old $dst_path?"; then
+				cp -Rf $dst_path "$dst_path.backup" 2> /dev/null
+			fi
+
+			rm -Rf "$dst_path"
 			action "$module" "$dst_path is removed successfully"
 		else
-			create_link=false
+			return
 		fi
 	fi
 
-	if $create_link; then
-		ln -s "$src_path" "$dst_path"
-		action "$module" "Symbolic link created successfully from $src_path to $dst_path"
-	fi
-}
-
-# creates a config file that resides in the `.config` directory, and provides a soft link for it.
-# for better organization of the repository, modules can be gathered into a directory, in these cases
-# the third parameter is used.
-# parameter 1: module name - string
-# parameter 2: file name - string
-# parameter 3: directory - string - optional
-function configrootfile() {
-	local module=$1
-	local src_file=$2
-	local src_dir=${3:-""}
-
-	if [ ! -e "$HOME/.config" ]; then
-		mkdir "$HOME/.config"
-	fi
-
-	if [ -n "$src_file" ]; then
-		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module/$src_file"
-		local dst_file="$src_file"
-	fi
-	local dst_path="$HOME/.config/$dst_file"
-
-	linker "$module" "$src_path" "$dst_path"
-}
-
-# creates a systemd file that resides in the `.config` directory, and provides a soft link for it.
-# for better organization of the repository, modules can be gathered into a directory, in these cases
-# the third parameter is used.
-# parameter 1: module name - string
-# parameter 2: file name - string
-# parameter 3: directory - string - optional
-function configsystemd() {
-	local module=$1
-	local src_file=$2
-	local src_dir=${3:-""}
-
-	if [ ! -e "$HOME/.config/systemd/user" ]; then
-		mkdir -p "$HOME/.config/systemd/user"
-	fi
-
-	if [ -n "$src_file" ]; then
-		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module/$src_file"
-		local dst_file="$src_file"
-	fi
-	local dst_path="$HOME/.config/systemd/user/$dst_file"
-
-	linker "$module" "$src_path" "$dst_path"
+	ln -s "$src_path" "$dst_path"
+	action "$module" "Symbolic link created successfully from $src_path to $dst_path"
 }

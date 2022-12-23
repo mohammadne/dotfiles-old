@@ -21,7 +21,7 @@
 
     # generate key-pairs
     # the key-generator prompts for a file name, enter the `id_ed25519` and `id_ed25519_snapp` respectively.
-    ssh-keygen -t ed25519 -C "mohammadne.dev@gmail.com"
+    ssh-keygen -t ed25519 -C "mohammadne.dev@gmail.com" 
     ssh-keygen -t ed25519 -C "mohammad.nasresfahani@snapp.cab"
     ```
 

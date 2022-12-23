@@ -8,10 +8,12 @@ program_name=$0
 
 # a global variable that points to dotfiles root directory, used also in scripts.
 dotfiles_root="$(cd "$(dirname "${BASH_SOURCE[0]}")"/.. && pwd)"
+scripts_dir="$dotfiles_root/scripts"
+configs_dir="$dotfiles_root/configs"
 
-source "$dotfiles_root/scripts/lib/header.sh"
-source "$dotfiles_root/scripts/lib/message.sh"
-source "$dotfiles_root/scripts/lib/linker.sh"
+source "$scripts_dir/lib/header.sh"
+source "$scripts_dir/lib/message.sh"
+source "$scripts_dir/lib/linker.sh"
 
 message "pre" "home directory found at $HOME"
 message "pre" "dotfiles found at $dotfiles_root"
@@ -144,7 +146,7 @@ function _run() {
 	local script start took
 
 	# print usage if no parameters given
-	if [ -z "$1" ]; then _usage; exit 1; fi
+	if [ -z "${1:-}" ]; then _usage; exit 1; fi
 
 	script=$1
 	shift
@@ -152,14 +154,13 @@ function _run() {
 	start=$(date +%s)
 
 	# shellcheck disable=1090
-	source "$dotfiles_root/src/terminal/$script.sh" 2>/dev/null || {
+	source "$scripts_dir/src/$script.sh" 2>/dev/null || {
 		echo "404 script not found"
 		exit
 	}
 
 	if [ $show_help = true ]; then
 		_usage
-		echo
 		usage
 	else
 		# run the script

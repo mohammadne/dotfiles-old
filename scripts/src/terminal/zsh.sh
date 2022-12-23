@@ -9,4 +9,11 @@ install() {
 }
 
 config() {
+	dotfile "zsh" "zshrc"
+	dotfile "zsh" "zshenv"
+	dotfile "zsh" "zsh.plug"
+
+	if [ "$SHELL" != '/bin/zsh' ]; then
+		message "general" "please change your shell to zsh manually"
+	fi
 }
