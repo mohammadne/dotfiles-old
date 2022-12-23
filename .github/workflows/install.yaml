@@ -9,12 +9,16 @@ on:
 
 jobs:
   basic-arch:
-    runs-on: archarm_latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - name: install base
-        run: ./scripts/install.sh -y base
-      - name: validate symbolic links
-        run: test "$(readlink -f ~/.config/git)" = "$(pwd)/configs/git"
-      - name: validate installation of requirements on both shell
-        run: bash -c hash nvim batcat bmon
+      - uses: uraimo/run-on-arch-action@v2
+        name: Run commands
+        id: runcmd
+        with:
+          arch: armv7
+          distro: ubuntu-22.04
+          githubToken: ${{ github.token }}
+          run: |
+            test "$(readlink -f ~/.config/git)" = "$(pwd)/configs/git"
+            bash -c hash nvim batcat bmon
