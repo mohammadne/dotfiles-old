@@ -12,6 +12,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/mohammadne/dotfiles?style=for-the-badge)
 
 > A dotfiles repository is a personal repository, with it, you can manage your configuration between your systems.
+>
+> Thanks to dear [Parham Alvani](https://github.com/1995parham/dotfiles) for its great dotfile, which this dotfile is highly inspired from.
 
 This repository contains my personal configurations for Arch Linux (with sway window manager) and apple OSX.
 
@@ -29,14 +31,12 @@ if you this repository was helpful, please don't forget to support & star it.
     git remote set-url origin git@github.com:mohammadne/dotfiles.git
     ```
 
-2. install & configure git credentials
+2. install and configure packages
 
-3. configure ssh keys & config
+    ```bash
+    # base packages for having a working system
+    ./scripts/install.sh base
 
-4. install and configure appropriate tools
-
-   - `cloner`: clones dotfiles repository in the place.
-
-   - `install`: installs the dependencies needed in the dotfiles.
-
-   - `linker`: create symlinks to the dotfile configs.
+    # other tools based on your needs
+    ./scripts/install.sh <script>
+    ```

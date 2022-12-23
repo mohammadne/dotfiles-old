@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-	echo -n "installs base packages for having a working system"
+	echo -n "install base packages for having a working system"
 }
 
 packages=(
