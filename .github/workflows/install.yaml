@@ -8,9 +8,9 @@ on:
       - scripts/install.sh
 
 jobs:
-  checker:
-    runs-on: ubuntu-18.04
-    name: Build on ubuntu-18.04 armv7
+  base:
+    runs-on: ubuntu-22.04
+    name: Build on ubuntu-22.04 armv7
     steps:
       - uses: actions/checkout@v3
       - uses: uraimo/run-on-arch-action@v2
@@ -18,13 +18,10 @@ jobs:
         id: runcmd
         with:
           arch: armv7
-          distro: ubuntu18.04
+          distro: ubuntu22.04
           githubToken: ${{ github.token }}
           run: |
-            result1=$(test "$(readlink -f ~/.config/git)" = "$(pwd)/configs/git")
-            echo "validate=$result1" >> $GITHUB_ENV
-            result2=$(bash -c hash nvim batcat bmon)
-            echo "dependencies=$result2" >> $GITHUB_ENV
+            echo "hi"
       - name: Get the output
         run: |
           echo "The validate output was: ${{ env.validate }}"
