@@ -14,6 +14,7 @@ configs_dir="$dotfiles_root/configs"
 source "$scripts_dir/lib/header.sh"
 source "$scripts_dir/lib/message.sh"
 source "$scripts_dir/lib/linker.sh"
+source "$scripts_dir/lib/require.sh"
 
 message "pre" "home directory found at $HOME"
 message "pre" "dotfiles found at $dotfiles_root"

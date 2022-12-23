@@ -18,36 +18,34 @@ packages=(
 
 	# ------------------------------------------------ system
 
-	htop
+	htop # process viewer
 	dua-cli # Disk Usage Analyzer
-	cpupower
+	cpupower # processor power managment
 	reflector # retrieve the latest mirror list from the Arch
+	usbutils # USB utilities
 
 	# ------------------------------------------------ networking
 
-	curl
+	curl # network data transfer utility
 	mtr inetutils websocat fuse2
-	aria2 # download utility
+	aria2 # download manager
 	bandwhich # bandwidth utilization tool
-	speedtest-cli
-	# gnu-netcat telnet tcpdump ss tshark wireshark 
+	speedtest-cli # speedtest cli
+	openbsd-netcat
+	# telnet tcpdump ss tshark wireshark 
 
 	# ------------------------------------------------ utilities
 
 	fd # new find
 	jwt-cli # work with JSON Web Tokens
 	tokei # statistics about your code
-	wakatime # metrics about your programming
 	pastel # generate, analyze, convert and manipulate colors
-
-	man-pages usbutils exfat-utils
-	openbsd-netcat
-	man-db
+	man-pages man-db # manual page managment
 )
 
 install() {
 	msg "installing ${packages[*]}"
-	# require_pacman "${packages[@]}"
+	require_pacman "${packages[@]}"
 }
 
 config() {
@@ -60,15 +58,9 @@ config() {
 	if [ ! -f "$HOME/.ssh/id_ed25519_snapp" ]; then 
 		ssh-keygen -t ed25519 -C "mohammad.nasresfahani@snapp.cab" -f "$HOME/.ssh/id_ed25519_snapp" -N "" &> /dev/null
 	fi
+	message "ssh" "add your public ssh credentials to remote hosts"
 
-	exit
+	linker "htop" "$configs_dir/htop/htoprc" "$HOME/.config/htop/htoprc"
 
-	dotfile "conf" "dircolors"
-	dotfile "conf" "aria2"
-	configfile "htop" "" "conf"
-
-	dotfile "bin" "bin" false
-
-	mkdir "$HOME/.wakatime" || true
-	dotfile "wakatime" "wakatime.cfg"
+	linker "aria2" "$configs_dir/aria2" "$HOME/.aria2"
 }
