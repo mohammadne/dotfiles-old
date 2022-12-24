@@ -44,7 +44,7 @@ ln -s "$dotfiles_home/tmux" ~/.config/tmux
 
 # vim
 # backup "file" ~/.vimrc
-# ln -s "$dotfiles_home/vim/vimrc" ~/.vimrc
+ln -s "$dotfiles_home/vim/vimrc" ~/.vimrc
 
 # nvim
 backup "directory" ~/.config/nvim
