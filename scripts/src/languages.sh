@@ -5,12 +5,10 @@ function usage() {
 }
 
 function run() {
-    local languages=(go rust python node)
+    local modules=(go rust python node)
 
-    for language in "${languages[@]}"; do
-        if yes_or_no "$language" "do you want to install $language?"; then
-            "_$language"
-        fi
+    for module in "${modules[@]}"; do
+        if yes_or_no "$module" "do you want to install $module?"; then "_$module"; fi
     done
 }
 
