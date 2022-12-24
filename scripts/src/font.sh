@@ -4,11 +4,9 @@ usage() {
 	echo -n "installs fonts"
 }
 
-install() {
+run() {
     msg "installing firacode-nerd"
     require_pacman ttf-firacode-nerd
-}
 
-config() {
     fc-cache -f ~/.local/share/fonts
 }

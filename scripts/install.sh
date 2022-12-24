@@ -38,28 +38,6 @@ function _usage() {
 	echo ""
 }
 
-function _install() {
-	if ! command -v pacman &> /dev/null; then
-		msg " linux with pacman is not installed, there is nothing to do"
-		exit
-	fi
-
-	if declare -f install > /dev/null; then
-		install
-	else
-		msg "install not found, there is nothing to do"
-		exit
-	fi
-
-	return
-}
-
-function _config() {
-	if declare -f config >/dev/null; then
-		config "$@"
-	fi
-}
-
 function _additionals() {
 	additionals=$*
 
@@ -172,8 +150,12 @@ function _run() {
 		dependencies=${dependencies:-""}
 		_dependencies "${dependencies[@]}"
 
-		_install "$@"
-		_config "$@"
+		if declare -f run > /dev/null; then
+			run
+		else
+			msg "run function not found, there is nothing to do"
+			exit
+		fi
 
 		# handle additional packages by executing the start.sh for each of them separately
 		additionals=${additionals:-""}

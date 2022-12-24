@@ -43,12 +43,10 @@ packages=(
 	man-pages man-db # manual page managment
 )
 
-install() {
+run() {
 	msg "installing ${packages[*]}"
 	require_pacman "${packages[@]}"
-}
 
-config() {
 	linker "git" "$configs_dir/git" "$HOME/.config/git"
 
 	linker "ssh" "$configs_dir/ssh/config" "$HOME/.ssh/config"
