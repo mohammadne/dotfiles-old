@@ -1,6 +1,11 @@
 #!/bin/bash
 
 function require_pacman() {
+	if ! command -v pacman &> /dev/null; then
+		msg " linux with pacman is not installed, there is nothing to do"
+		exit
+	fi
+
 	for pkg in "$@"; do
 		running "require" " pacman $pkg"
 		if ! pacman -Qi "$pkg" >/dev/null 2>&1; then
