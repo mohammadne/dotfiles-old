@@ -7,6 +7,8 @@ function usage() {
 function run() {
     local modules=(alacritty tmux zsh fish)
 
+    # TODO: complete it for zsh & fish and set default shell but not both
+
     for module in "${modules[@]}"; do
         if yes_or_no "$module" "do you want to install $module?"; then "_$module"; fi
     done
@@ -39,20 +41,27 @@ function _zsh() {
 
 	mkdir -p ~/.config
 
-    dotfile "zsh" "zshrc"
-	dotfile "zsh" "zshenv"
-	dotfile "zsh" "zsh.plug"
+    # TODO: complete it
+    exit 1
+
+    # dotfile "zsh" "zshrc"
+	# dotfile "zsh" "zshenv"
+	# dotfile "zsh" "zsh.plug"
+
+    linker "zsh" "$configs_dir/zsh/zshrc" "$HOME/.zshrc"
+    linker "zsh" "$configs_dir/zsh/p10k.zsh" "$HOME/.config/p10k.zsh"
 
     echo "Installing Oh My Zsh ..."
     backup "directory" ~/.config/oh-my-zsh
-    ZSH=~/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 1>/dev/null
+    ZSH="$HOME/.config/oh-my-zsh" sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 1>/dev/null
 
     echo "Installing Oh My Zsh plugins ..."
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.config/oh-my-zsh/custom}/themes/powerlevel10k --quiet
-    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.config/oh-my-zsh/custom}/plugins/zsh-autosuggestions" --quiet
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.config/oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" --quiet
-    git clone https://github.com/zsh-users/zsh-history-substring-search "${ZSH_CUSTOM:-$HOME/.config/oh-my-zsh/custom}/plugins/zsh-history-substring-search" --quiet
-    git clone https://github.com/zsh-users/zsh-completions "${ZSH_CUSTOM:-$HOME/.config/oh-my-zsh/custom}/plugins/zsh-completions" --quiet
+    local zsh_custom=${ZSH_CUSTOM:-$HOME/.config/oh-my-zsh/custom}
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $zsh_custom/themes/powerlevel10k
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$zsh_custom/plugins/zsh-autosuggestions"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$zsh_custom/plugins/zsh-syntax-highlighting"
+    git clone https://github.com/zsh-users/zsh-history-substring-search "$zsh_custom/plugins/zsh-history-substring-search"
+    git clone https://github.com/zsh-users/zsh-completions "$zsh_custom/plugins/zsh-completions"
 
 
     if [ "$SHELL" != '/bin/zsh' ]; then
@@ -63,4 +72,6 @@ function _zsh() {
 
 function _fish() {
     require_pacman fish
+
+    # TODO: complete it
 }
