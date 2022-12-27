@@ -1,7 +1,35 @@
-# nord color references: https://github.com/arcticicestudio/nord-alacritty
+# color references: https://unpkg.com/browse/alacritty-themes
+
+colors:
+  # Default colors
+  primary:
+    background: "#2E3440"
+    foreground: "#D8DEE9"
+
+  # Normal colors
+  normal:
+    black: "#3B4252"
+    red: "#BF616A"
+    green: "#A3BE8C"
+    yellow: "#EBCB8B"
+    blue: "#81A1C1"
+    magenta: "#B48EAD"
+    cyan: "#88C0D0"
+    white: "#E5E9F0"
+
+  # Bright colors
+  bright:
+    black: "#4C566A"
+    red: "#BF616A"
+    green: "#A3BE8C"
+    yellow: "#EBCB8B"
+    blue: "#81A1C1"
+    magenta: "#B48EAD"
+    cyan: "#8FBCBB"
+    white: "#ECEFF4"
 
 font:
-  size: 12
+  size: 14
   normal:
     family: FiraCode Nerd Font
     style: Regular
@@ -12,14 +40,11 @@ font:
     family: FiraCode Nerd Font
     style: ExtraLight Italic
   builtin_box_drawing: true
-  offset:
-    x: 0
-    y: 5
 
 live_config_reload: true
 
 window:
-  opacity: 0.9
+  opacity: 0.95
   padding:
     x: 10
     y: 10
@@ -42,4 +67,4 @@ key_bindings:
   - { key: NumpadSubtract, mods: Control, action: DecreaseFontSize }
 
 shell:
-  program: /bin/fish
+  program: /bin/zsh
