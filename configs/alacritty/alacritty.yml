@@ -45,8 +45,6 @@ live_config_reload: true
 
 window:
   opacity: 0.95
-  padding:
-    y: 5
 
 cursor:
   style: Beam
