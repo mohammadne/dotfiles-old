@@ -16,7 +16,7 @@ function _alacritty() {
     export dependencies=('rust')
     require_aur alacritty-git
 
-    linker "alacritty" "$configs_dir/alacritty" "$HOME/.config/alacritty"
+    linker "alacritty" "$configs_dir/alacritty.yml" "$HOME/.config/alacritty.yml"
 }
 
 function _tmux() {
