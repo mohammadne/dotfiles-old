@@ -106,24 +106,6 @@ source $ZSH/oh-my-zsh.sh # required to load oh-my-zsh
 
 # --------------------------------------------------------------------------------------- Development
 
-# add homebrew path on MacOS
-if [[ "$(uname)" = 'Darwin' ]]; then
-  PATH=$PATH:/opt/homebrew/bin
-fi
-
-# add cargo if cargo has been installed
-if command -v cargo &> /dev/null; then
-  export CARGOPATH=~/.cargo/bin
-  PATH=$PATH:$CARGOPATH
-fi
-
-# add gopath if go has been installed
-if command -v go &> /dev/null; then
-  export GOPATH=$(go env GOPATH)
-  PATH=$PATH:$GOPATH
-fi
-
-# export $PATH
 export PATH=$PATH:$HOME/.local/bin
 
 # --------------------------------------------------------------------------------------- Miscellaneous
@@ -138,6 +120,53 @@ alias snappvpndown="nmcli con down id snapp"
 # zsh related
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
+
+# replace ls with exa
+alias ls='exa --color=always --group-directories-first --icons'       # preferred listing
+alias ll='exa -alF --color=always --group-directories-first --icons'  # long format
+alias la='exa -a --color=always --group-directories-first --icons'    # all files and dirs
+alias lt='exa -aT --color=always --group-directories-first --icons'   # tree listing
+alias l.="exa -a | egrep '^\.'"                                       # show only dotfiles
+
+# replace cat and for better viewing manpages
+if command -v bat &>/dev/null; then
+  alias cat='bat --style header --style snip --style changes --style header'
+	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
+
+# common use
+alias r="source ~/.zshenv && source ~/.zshrc"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias ip="ip -color"
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias wget='wget -c '
+alias hw='hwinfo --short'
+
+alias grubup="sudo update-grub"
+alias fixpacman="sudo rm /var/lib/pacman/db.lck"
+
+# get fastest mirrors
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+
+# cleanup orphaned packages
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
+
+# get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# recent installed packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 # --------------------------------------------------------------------------------------- Miscellaneous
 
