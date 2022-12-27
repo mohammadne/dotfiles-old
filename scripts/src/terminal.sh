@@ -5,9 +5,7 @@ function usage() {
 }
 
 function run() {
-    local modules=(alacritty tmux zsh fish)
-
-    # TODO: complete it for zsh & fish and set default shell but not both
+    local modules=(alacritty tmux zsh)
 
     for module in "${modules[@]}"; do
         if yes_or_no "$module" "do you want to install $module?"; then "_$module"; fi
@@ -68,10 +66,4 @@ function _zsh() {
 		message "general" "please change your shell to zsh manually"
 		# sudo usermod --shell "$(which zsh)" "$(whoami)"
 	fi
-}
-
-function _fish() {
-    require_pacman fish
-
-    # TODO: complete it
 }

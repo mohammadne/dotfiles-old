@@ -10,6 +10,7 @@ packages=(
 	# ------------------------------------------------ editors
 
 	bat # cat alternative
+	exa # modern replacement for ls
 	clipman # clipboard
 	jq yq jless
 	yamllint # linter for YAML files 
