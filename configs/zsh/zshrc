@@ -163,11 +163,11 @@ pastefinish() {
   zle -N self-insert $OLD_SELF_INSERT
 }
 
-# https://github.com/zsh-users/zsh-autosuggestions/issues/511
-zle_bracketed_paste=()
-
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
+
+# https://github.com/zsh-users/zsh-autosuggestions/issues/351
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste accept-line)
 
 # To customize prompt, run `p10k configure` or edit ~/.config/p10k.zsh.
 [[ ! -f ~/.config/p10k.zsh ]] || source ~/.config/p10k.zsh
