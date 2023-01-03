@@ -110,11 +110,14 @@ colorscheme onedark
 " activate airline theme
 let g:airline_theme='onedark'
 
-" disable trailing section
-let g:airline#extensions#whitespace#enabled = 0
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = '\'
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = '/'
 
-" enable powerline_fonts
-let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 " customize z section
 let g:airline_section_z = "row:\ %l\ col:\ %c\ percent:\ %p%%"
+
+" .vimrc" 119L, 3189B
