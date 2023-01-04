@@ -1,16 +1,5 @@
 #!/bin/bash
 
-# load color palette config
-source ~/.tmux/themes/configs/"$1".conf
-
-function set() {
-   tmux set-option -gq "$1" "$2"
-}
-
-function setw() {
-   tmux set-window-option -gq "$1" "$2"
-}
-
 # active left status style
 set "status-left" "\
 #[fg=$edge_fg,bg=$edge_bg,bold] #S \
@@ -28,7 +17,7 @@ set "@prefix_highlight_output_suffix" " |"
 set "status-right" "\
 #[fg=$edge_bg,bg=$background]
 #{prefix_highlight}\
-#[fg=$edge_fg,bg=$edge_bg,bold] #{USER} @ #h "
+#[fg=$edge_fg,bg=$edge_bg] #{USER} @ #h "
 
 # inactive status windows style
 set "window-status-format" "\

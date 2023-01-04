@@ -1,19 +1,8 @@
 #!/bin/bash
 
-# load color palette config
-source ~/.config/tmux/themes/configs/"$1".conf
-
-function set() {
-   tmux set-option -gq "$1" "$2"
-}
-
-function setw() {
-   tmux set-window-option -gq "$1" "$2"
-}
-
 # active left status style
 set "status-left" "\
-#[fg=$edge_fg,bg=$edge_bg,bold] #S \
+#[fg=$edge_fg,bg=$edge_bg] #S \
 #[fg=$edge_bg,bg=$background]"
 
 # prefix highlight when pressed
@@ -46,15 +35,6 @@ set "@prefix_highlight_output_suffix" " "
 # #[fg=colour5]\
 # #{?client_readonly,readonly ,}"
 
-# active right status style
-set "status-right" "\
-#[fg=$hover_bg,bg=$background]\
-#{prefix_highlight}\
-#[fg=$hover_fg,bg=$hover_bg,nounderscore,noitalics] %H:%M  %a \
-#[fg=$background,bg=$hover_bg]\
-#[fg=$edge_bg,bg=$background]\
-#[fg=$edge_fg,bg=$edge_bg,bold] #{USER}@#h "
-
 # inactive status windows style
 set "window-status-format" "\
 #[fg=$background,bg=$background]\
@@ -66,3 +46,12 @@ set "window-status-current-format" "\
 #[fg=$background,bg=$hover_bg]\
 #[fg=$hover_fg,bg=$hover_bg,nobold] #I  #W \
 #[fg=$hover_bg,bg=$background]"
+
+# active right status style
+set "status-right" "\
+#[fg=$hover_bg,bg=$background]\
+#{prefix_highlight}\
+#[fg=$hover_fg,bg=$hover_bg,nounderscore,noitalics] %H:%M  %a \
+#[fg=$background,bg=$hover_bg]\
+#[fg=$edge_bg,bg=$background]\
+#[fg=$edge_fg,bg=$edge_bg] #{USER} @ #h "

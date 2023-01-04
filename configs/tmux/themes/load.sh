@@ -38,4 +38,4 @@ set "window-style" "fg=$inactive,bg=default"
 set "status-style" "fg=$background,bg=$background"
 
 # source the style with appropriate theme config
-source ~/.config/tmux/themes/styles/"$style".sh "$config"
+source ~/.config/tmux/themes/styles/"$style".sh
