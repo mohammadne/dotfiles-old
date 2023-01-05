@@ -45,6 +45,9 @@ function _go() {
 function _rust() {
     require_pacman rust
 
+	# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	# add $HOME/.cargo/bin to path
+
     mkdir -p "$HOME/.cargo" || true
     cp "$dotfiles_root/rust/config.toml" "$HOME/.cargo/config.toml"
 
@@ -54,6 +57,10 @@ function _rust() {
 
 function _python() {
     require_pacman python python-pip
+
+	# sudo dnf install python3 -y
+	# python -m pip install --upgrade pip # install pip package manager
+	# pip install --upgrade autopep8
     
     msg "update user-local version of pip"
 	python -mpip install --user --pre -U pip
