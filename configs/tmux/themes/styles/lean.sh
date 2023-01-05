@@ -2,7 +2,7 @@
 
 # active left status style
 set "status-left" "\
-#[fg=$edge_fg,bg=$edge_bg,bold] #S \
+#[fg=$edge_fg,bg=$edge_bg] #S \
 #[fg=$foreground,bg=$background] │ "
 
 # prefix highlight when pressed
@@ -17,7 +17,7 @@ set "@prefix_highlight_output_suffix" " "
 set "status-right" "\
 #{prefix_highlight}\
 #[fg=$hover_fg,bg=$hover_bg,nounderscore,noitalics] %H:%M %a \
-#[fg=$edge_fg,bg=$edge_bg,bold] #{USER}@#h "
+#[fg=$edge_fg,bg=$edge_bg] #{USER} @ #h "
 
 # inactive status windows style
 set "window-status-format" "\
@@ -25,4 +25,4 @@ set "window-status-format" "\
 
 # active status windows style
 set "window-status-current-format" "\
-#[fg=$hover_fg,bg=$hover_bg,nobold] #I:#W "
+#[fg=$hover_fg,bg=$hover_bg] #I:#W "
