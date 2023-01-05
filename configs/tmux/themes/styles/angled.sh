@@ -2,7 +2,7 @@
 
 # active left status style
 set "status-left" "\
-#[fg=$edge_fg,bg=$edge_bg] #S \
+#[fg=$edge_fg,bg=$edge_bg] ♣ #S \
 #[fg=$edge_bg,bg=$background]"
 
 # prefix highlight when pressed
@@ -11,7 +11,7 @@ set "@prefix_highlight_bg" "$hover_bg"
 set "@prefix_highlight_prefix_prompt" "prefix"
 set "@prefix_highlight_empty_prompt" ""
 set "@prefix_highlight_output_prefix" ""
-set "@prefix_highlight_output_suffix" " "
+set "@prefix_highlight_output_suffix" " <"
 
 # # flags for various options
 # FLAGS=" \
@@ -38,20 +38,20 @@ set "@prefix_highlight_output_suffix" " "
 # inactive status windows style
 set "window-status-format" "\
 #[fg=$background,bg=$background]\
-#[fg=$foreground,bg=$background] #I  #W \
+#[fg=$foreground,bg=$background] #I > #W \
 #[fg=$background,bg=$background]"
 
 # active status windows style
 set "window-status-current-format" "\
 #[fg=$background,bg=$hover_bg]\
-#[fg=$hover_fg,bg=$hover_bg,nobold] #I  #W \
+#[fg=$hover_fg,bg=$hover_bg,nobold] #I > #W \
 #[fg=$hover_bg,bg=$background]"
 
 # active right status style
 set "status-right" "\
 #[fg=$hover_bg,bg=$background]\
 #{prefix_highlight}\
-#[fg=$hover_fg,bg=$hover_bg,nounderscore,noitalics] %H:%M  %a \
+#[fg=$hover_fg,bg=$hover_bg,nounderscore,noitalics] %H:%M < %a \
 #[fg=$background,bg=$hover_bg]\
 #[fg=$edge_bg,bg=$background]\
 #[fg=$edge_fg,bg=$edge_bg] #{USER} @ #h "
