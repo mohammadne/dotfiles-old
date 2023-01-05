@@ -25,7 +25,7 @@ function _tmux() {
 	linker "tmux" "$configs_dir/tmux" "$HOME/.config/tmux"
 
 	message "tmux" "installing tmux plugins"
-    tpm_path="$HOME/.tmux/plugins/tpm"
+    tpm_path="$HOME/.local/share/tmux/plugins/tpm"
 	if [ ! -d "$tpm_path" ]; then
 		git clone https://github.com/tmux-plugins/tpm "$tpm_path"
 	fi
