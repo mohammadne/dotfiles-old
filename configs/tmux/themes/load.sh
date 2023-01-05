@@ -1,11 +1,5 @@
 #!/bin/bash
 
-style=$1
-config=$2
-
-# load color palette
-source ~/.config/tmux/themes/configs/"$config".conf
-
 function set() {
    tmux set-option -gq "$1" "$2"
 }
@@ -37,5 +31,6 @@ set "window-style" "fg=$inactive,bg=default"
 # inactive (empty space) status style
 set "status-style" "fg=$background,bg=$background"
 
-# source the style with appropriate theme config
-source ~/.config/tmux/themes/styles/"$style".sh
+current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $current_dir/colorschemes/"$1".conf # load colorscheme
+source $current_dir/styles/"$2".sh # load style
