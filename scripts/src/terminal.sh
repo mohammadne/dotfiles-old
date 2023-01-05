@@ -23,15 +23,16 @@ function _tmux() {
     require_pacman tmux tmuxp
 
 	linker "tmux" "$configs_dir/tmux" "$HOME/.config/tmux"
-	# linker "tmuxp" "$configs_dir/tmux" "$HOME/.config/tmuxp"
-	# linker "tmuxs" "$configs_dir/tmux" "$HOME/.config/tmuxs"
 
 	message "tmux" "installing tmux plugins"
-	if [ ! -d "$HOME/.config/tmux/plugins/tpm" ]; then
-		mkdir -p ~/.config/tmux/plugins
-		git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+    tpm_path="$HOME/.tmux/plugins/tpm"
+	if [ ! -d "$tpm_path" ]; then
+		git clone https://github.com/tmux-plugins/tpm "$tpm_path"
 	fi
-	~/.config/tmux/plugins/tpm/bin/install_plugins
+	"$tpm_path/bin/install_plugins"
+
+	# linker "tmuxp" "$configs_dir/tmux" "$HOME/.config/tmuxp"
+	# linker "tmuxs" "$configs_dir/tmux" "$HOME/.config/tmuxs"
 }
 
 function _zsh() {
