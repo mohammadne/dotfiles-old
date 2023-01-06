@@ -10,7 +10,7 @@ function setw() {
    tmux set-window-option -gq "$1" "$2"
 }
 
-source $current_dir/colorschemes/"$1".conf # load colorscheme
+source $current_dir/colors/"$1".conf # load colorscheme
 source $current_dir/styles/"$2".sh # load style
 
 # message infos
