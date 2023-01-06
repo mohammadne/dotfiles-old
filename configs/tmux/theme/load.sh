@@ -1,5 +1,7 @@
 #!/bin/bash
 
+current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 function set() {
    tmux set-option -gq "$1" "$2"
 }
@@ -7,6 +9,9 @@ function set() {
 function setw() {
    tmux set-window-option -gq "$1" "$2"
 }
+
+source $current_dir/colorschemes/"$1".conf # load colorscheme
+source $current_dir/styles/"$2".sh # load style
 
 # message infos
 set "message-style"         "fg=foreground,bg=background,bold" # status line messages style
@@ -30,7 +35,3 @@ set "window-style" "fg=$inactive,bg=default"
 
 # inactive (empty space) status style
 set "status-style" "fg=$background,bg=$background"
-
-current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $current_dir/colorschemes/"$1".conf # load colorscheme
-source $current_dir/styles/"$2".sh # load style
