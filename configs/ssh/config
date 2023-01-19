@@ -1,9 +1,5 @@
-# Snapp account
-Host gitlab.snapp.ir
-   IdentityFile ~/.ssh/id_ed25519_snapp
-   User mohammad.nasresfahani
-
-# Default account
 Host *
-   IdentityFile ~/.ssh/id_ed25519
-   User mohammadne
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+  User mohammadne

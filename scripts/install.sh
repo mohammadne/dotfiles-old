@@ -11,6 +11,7 @@ dotfiles_root="$(cd "$(dirname "${BASH_SOURCE[0]}")"/.. && pwd)"
 scripts_dir="$dotfiles_root/scripts"
 configs_dir="$dotfiles_root/configs"
 
+source "$scripts_dir/lib/variables.sh"
 source "$scripts_dir/lib/header.sh"
 source "$scripts_dir/lib/message.sh"
 source "$scripts_dir/lib/linker.sh"
