@@ -50,14 +50,14 @@ run() {
 
 	linker "git" "$configs_dir/git" "$HOME/.config/git"
 
-	_ssh()
+	_ssh_keys()
 
 	linker "htop" "$configs_dir/htop/htoprc" "$HOME/.config/htop/htoprc"
 
 	linker "aria2" "$configs_dir/aria2" "$HOME/.aria2"
 }
 
-function _ssh() {
+function _ssh_keys() {
 	linker "ssh" "$configs_dir/ssh/config" "$HOME/.ssh/config"
 
 	declare -A map=(
@@ -67,6 +67,9 @@ function _ssh() {
 		# hetzner cloud
 		["hetzner"]="ed25519"
 
+		# arvan cloud
+		["arvan"]="ed25519"
+
 		# snapp cooperation
 		["snapp/gitlab"]="ed25519"
 		["snapp/openstack"]="rsa"
@@ -75,7 +78,7 @@ function _ssh() {
 	for key in "${!map[@]}"; do 
 		path="$HOME/.ssh/$key_${map[$key]}"
 		if [ ! -f "$path" ]; then
-			ssh-keygen -t ${map[$key]} -f "$path" -N ""
+			ssh-keygen -t ${map[$key]} -c "$email" -f "$path" -N "" -C ""
 		fi
 	done
 

@@ -1,5 +1,34 @@
-Host *
+# IdentityFile ~/.ssh/id_ed25519
+
+# ---------------------------------------------- PERSONAL
+
+Host github.com
   AddKeysToAgent yes
-  UseKeychain yes
-  IdentityFile ~/.ssh/id_ed25519
-  User mohammadne
+  IdentityFile ~/.ssh/github_ed25519
+  User git
+
+Host utm
+  HostName 192.168.64.3
+  IdentityFile ~/.ssh/utm_ed25519
+  User root
+
+Host hetzner
+  HostName hetzner.mohammadne.cloudns.ph
+  IdentityFile ~/.ssh/hetzner_ed25519
+  User root
+
+Host arvan
+  HostName arvan.mohammadne.cloudns.ph
+  IdentityFile ~/.ssh/arvan_ed25519
+  User root
+
+# ---------------------------------------------- SNAPP
+
+Host gitlab.snapp.ir
+  IdentityFile ~/.ssh/snapp/gitlab_ed25519
+  User git
+
+Host snapp-openstack
+  HostName server1.cyberciti.biz
+  IdentityFile ~/.ssh/snapp/openstack_rsa
+  User centos
