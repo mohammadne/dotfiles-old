@@ -60,15 +60,24 @@ run() {
 function _ssh() {
 	linker "ssh" "$configs_dir/ssh/config" "$HOME/.ssh/config"
 
-	ed25519_path="$HOME/.ssh/id_ed25519"
-	if [ ! -f "$ed25519_path" ]; then
-		ssh-keygen -t ed25519 -C "$email" -f "$ed25519_path" -N "" &> /dev/null
-	fi
+	declare -A map=(
+		# github
+		["github"]="ed25519"
 
-	rsa_path="$HOME/.ssh/id_rsa"
-	if [ ! -f "$rsa_path" ]; then
-		ssh-keygen -t rsa -C "$email" -f "$rsa_path" -N "" &> /dev/null
-	fi
+		# hetzner cloud
+		["hetzner"]="ed25519"
+
+		# snapp cooperation
+		["snapp/gitlab"]="ed25519"
+		["snapp/openstack"]="rsa"
+	)
+
+	for key in "${!map[@]}"; do 
+		path="$HOME/.ssh/$key_${map[$key]}"
+		if [ ! -f "$path" ]; then
+			ssh-keygen -t ${map[$key]} -f "$path" -N ""
+		fi
+	done
 
 	message "ssh" "add your public ssh credentials to remote hosts"
 }
