@@ -78,7 +78,7 @@ function _ssh_keys() {
 	for key in "${!map[@]}"; do 
 		path="$HOME/.ssh/$key_${map[$key]}"
 		if [ ! -f "$path" ]; then
-			ssh-keygen -t ${map[$key]} -c "$email" -f "$path" -N "" -C ""
+			ssh-keygen -t ${map[$key]} -f "$path" -N "" -C ""
 		fi
 	done
 

@@ -21,6 +21,7 @@ fi
 # add homebrew path on MacOS
 if [[ "$(uname)" = 'Darwin' ]]; then
   PATH=$PATH:/opt/homebrew/bin
+  PATH=$PATH:/opt/homebrew/sbin
 fi
 
 # set PATH so it includes user's private bin if it exists
