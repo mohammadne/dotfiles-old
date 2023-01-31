@@ -1,6 +1,4 @@
-# IdentityFile ~/.ssh/id_ed25519
-
-# ---------------------------------------------- PERSONAL
+Include ./snapp/config
 
 Host github.com
   AddKeysToAgent yes
@@ -8,27 +6,27 @@ Host github.com
   User git
 
 Host utm
-  HostName 192.168.64.3
+  HostName 192.168.64.4
   IdentityFile ~/.ssh/utm_ed25519
-  User root
+  User ubuntu
 
 Host hetzner
   HostName hetzner.mohammadne.cloudns.ph
   IdentityFile ~/.ssh/hetzner_ed25519
   User root
 
-Host arvan
-  HostName arvan.mohammadne.cloudns.ph
-  IdentityFile ~/.ssh/arvan_ed25519
+Host hetzner-controller
+  HostName 91.107.151.7
+  IdentityFile ~/.ssh/hetzner_ed25519
   User root
 
-# ---------------------------------------------- SNAPP
+Host hetzner-compute
+  HostName 91.107.151.7 
+  IdentityFile ~/.ssh/hetzner_ed25519
+  User root
 
-Host gitlab.snapp.ir
-  IdentityFile ~/.ssh/snapp/gitlab_ed25519
-  User git
+Host arvan
+  HostName 188.121.116.137 
+  IdentityFile ~/.ssh/arvan_ed25519
+  User ubuntu
 
-Host snapp-openstack
-  HostName server1.cyberciti.biz
-  IdentityFile ~/.ssh/snapp/openstack_rsa
-  User centos
