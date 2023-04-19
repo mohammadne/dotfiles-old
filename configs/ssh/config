@@ -10,23 +10,13 @@ Host utm
   IdentityFile ~/.ssh/utm_ed25519
   User ubuntu
 
-Host hetzner
-  HostName hetzner.mohammadne.cloudns.ph
+Host hetzner-vpn
+  HostName  91.107.159.179
   IdentityFile ~/.ssh/hetzner_ed25519
   User root
-
-Host hetzner-controller
-  HostName 91.107.151.7
-  IdentityFile ~/.ssh/hetzner_ed25519
-  User root
-
-Host hetzner-compute
-  HostName 91.107.151.7 
-  IdentityFile ~/.ssh/hetzner_ed25519
-  User root
+  Port 2222
 
 Host arvan
-  HostName 188.121.116.137 
+  HostName 188.121.99.223
   IdentityFile ~/.ssh/arvan_ed25519
   User ubuntu
-
