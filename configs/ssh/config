@@ -1,9 +1,12 @@
-Include ./snapp/config
-
 Host github.com
   AddKeysToAgent yes
   IdentityFile ~/.ssh/github_ed25519
   User git
+
+Host dvh-server
+  HostName ns320972.ip-37-187-148.eu
+  IdentityFile ~/.ssh/ed25519_devopshobbies
+  User ubuntu
 
 Host utm
   HostName 192.168.64.4
