@@ -70,9 +70,9 @@ function _ssh_keys() {
 		# arvan cloud
 		["arvan"]="ed25519"
 
-		# snapp cooperation
-		["snapp/gitlab"]="ed25519"
-		["snapp/openstack"]="rsa"
+		# sotoon cooperation
+		["sotoon"]="ed25519"
+		# ["sotoon/openstack"]="rsa"
 	)
 
 	for key in "${!map[@]}"; do 

@@ -3,6 +3,11 @@ Host github.com
   IdentityFile ~/.ssh/github_ed25519
   User git
 
+Host git.cafebazaar.ir
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/sotoon_ed25519
+  User git
+
 Host dvh-server
   HostName ns320972.ip-37-187-148.eu
   IdentityFile ~/.ssh/ed25519_devopshobbies
