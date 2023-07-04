@@ -13,7 +13,7 @@ for weight in $font_weights; do
 done
 
 # install fontconfig if fc-cache not found
-if (command -v fc-cache &> /dev/null) ; then
+if !(command -v fc-cache &> /dev/null) ; then
     echo "installing required packages for font ..."
     sudo dnf install -y fontconfig
 fi
