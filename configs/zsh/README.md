@@ -44,6 +44,7 @@
 5. symlink config files
 
     ```bash
-    ln -s ~/Develop/dotfiles/zsh/zshrc ~/.zshrc
-    ln -s ~/Develop/dotfiles/zsh/p10k.zsh ~/.config/p10k.zsh
+    ln -s ~/Develop/personal/dotfiles/configs/zsh/zshrc ~/.zshrc
+    ln -s ~/Develop/personal/dotfiles/configs/zsh/zshenv ~/.zshenv
+    ln -s ~/Develop/personal/dotfiles/configs/zsh/p10k.zsh ~/.config/p10k.zsh
     ```
