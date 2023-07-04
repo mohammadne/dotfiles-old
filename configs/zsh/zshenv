@@ -1,10 +1,12 @@
 # prevent from duplicate records in path
 typeset -U path
 
-# add gopath if go has been installed
-if command -v go &> /dev/null; then
-  export GOPATH=$(go env GOPATH)
-  PATH=$PATH:$GOPATH
+# add golang related environments if go binary has been installed
+_go_binary="/usr/local/go/bin/go" # go binary address
+if command -v $_go_binary &> /dev/null; then
+  export GOROOT=$($_go_binary env GOROOT)
+  export GOPATH=$($_go_binary env GOPATH)
+  PATH=$PATH:$GOROOT/bin:$GOPATH
 fi
 
 # add cargo if cargo has been installed
@@ -16,12 +18,6 @@ fi
 # rootless docker daemon but with podman
 if [ -e "$XDG_RUNTIME_DIR/podman/podman.sock" ]; then
   export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
-fi
-
-# add homebrew path on MacOS
-if [[ "$(uname)" = 'Darwin' ]]; then
-  PATH=$PATH:/opt/homebrew/bin
-  PATH=$PATH:/opt/homebrew/sbin
 fi
 
 # set PATH so it includes user's private bin if it exists

@@ -58,8 +58,6 @@ function tks() {
   tmux kill-session -t "$session_name" 2> /dev/null
 }
 
-tns
-
 # --------------------------------------------------------------------------------------- P10K
 
 # Initialization code that may require console input (password prompts, [y/n]
