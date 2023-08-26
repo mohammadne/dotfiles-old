@@ -58,6 +58,20 @@ function tks() {
   tmux kill-session -t "$session_name" 2> /dev/null
 }
 
+# --------------------------------------------------------------------------------------- Proxy
+
+function proxy_on() {
+  http_proxy="http://mohammadnasr:1Sdz827jtaWvR4aA@zagroxy.insiders.sotoon.ir:3832"
+  https_proxy="http://mohammadnasr:1Sdz827jtaWvR4aA@zagroxy.insiders.sotoon.ir:3832"
+  no_proxy="localhost,127.0.0.1"
+}
+
+function proxy_off() {
+  http_proxy=""
+  https_proxy=""
+  no_proxy=""
+}
+
 # --------------------------------------------------------------------------------------- P10K
 
 # Initialization code that may require console input (password prompts, [y/n]

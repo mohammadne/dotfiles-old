@@ -13,18 +13,23 @@ Host dvh-server
   IdentityFile ~/.ssh/ed25519_devopshobbies
   User ubuntu
 
-Host utm
-  HostName 192.168.64.4
-  IdentityFile ~/.ssh/utm_ed25519
-  User ubuntu
-
 Host hetzner-vpn
   HostName  91.107.159.179
   IdentityFile ~/.ssh/hetzner_ed25519
   User root
   Port 2222
 
-Host arvan
-  HostName 188.121.99.223
-  IdentityFile ~/.ssh/arvan_ed25519
+Host arvancloud
+  HostName 188.121.98.65
+  IdentityFile ~/.ssh/arvancloud_ed25519
   User ubuntu
+
+Host sotoon-ubuntu
+  HostName 86.104.40.17
+  IdentityFile ~/.ssh/sotoon_ubuntu_ed25519
+  User compute
+
+Host ansible-playground
+  HostName 86.104.38.149
+  IdentityFile ~/.ssh/sotoon_ubuntu_ed25519
+  User compute

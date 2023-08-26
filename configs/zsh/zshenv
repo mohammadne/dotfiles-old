@@ -1,6 +1,11 @@
 # prevent from duplicate records in path
 typeset -U path
 
+# set PATH so it includes user's local private bin if it exists
+if [ -d "$HOME/.local/bin" ]; then
+	path+=("$HOME/.local/bin")
+fi
+
 # add golang related environments if go binary has been installed
 _go_binary="/usr/local/go/bin/go" # go binary address
 if command -v $_go_binary &> /dev/null; then
@@ -13,21 +18,6 @@ fi
 if command -v cargo &> /dev/null; then
   export CARGOPATH=~/.cargo/bin
   PATH=$PATH:$CARGOPATH
-fi
-
-# rootless docker daemon but with podman
-if [ -e "$XDG_RUNTIME_DIR/podman/podman.sock" ]; then
-  export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ]; then
-	path+=("$HOME/bin")
-fi
-
-# set PATH so it includes user's local private bin if it exists
-if [ -d "$HOME/.local/bin" ]; then
-	path+=("$HOME/.local/bin")
 fi
 
 # replace cat with bat for viewing manpages

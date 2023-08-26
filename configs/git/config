@@ -8,5 +8,5 @@
 [pull]
 	rebase = true
 
-[url "ssh://git@gitlab.snapp.ir/"]
-	insteadof = https://gitlab.snapp.ir/
+[url "ssh://git@git.cafebazaar.ir/"]
+	insteadof = https://git.cafebazaar.ir/
