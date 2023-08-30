@@ -11,7 +11,7 @@ _go_binary="/usr/local/go/bin/go" # go binary address
 if command -v $_go_binary &> /dev/null; then
   export GOROOT=$($_go_binary env GOROOT)
   export GOPATH=$($_go_binary env GOPATH)
-  PATH=$PATH:$GOROOT/bin:$GOPATH
+  PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
 # add cargo if cargo has been installed
