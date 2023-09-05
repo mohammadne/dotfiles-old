@@ -22,6 +22,7 @@
 1. Create a basic directory structure and clone the dotfiles repository
 
     ``` bash
+    # I personally prefer to put my dotfiles at ~/Develop/personal but you can put it anywhere you want
     mkdir -p "$HOME/Develop/personal" && cd "$HOME/Develop/personal"
     git clone https://github.com/mohammadne/dotfiles.git && cd ./dotfiles
     git remote set-url origin git@github.com:mohammadne/dotfiles.git

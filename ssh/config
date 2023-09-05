@@ -10,7 +10,7 @@ Host git.cafebazaar.ir
 
 Host dvh-server
   HostName ns320972.ip-37-187-148.eu
-  IdentityFile ~/.ssh/ed25519_devopshobbies
+  IdentityFile ~/.ssh/devopshobbies_ed25519
   User ubuntu
 
 Host hetzner-vpn
@@ -31,10 +31,5 @@ Host sotoon-mohammad-dev
 
 Host sotoon-ubuntu
   HostName 86.104.40.17
-  IdentityFile ~/.ssh/sotoon_ubuntu_ed25519
-  User compute
-
-Host ansible-playground
-  HostName 86.104.38.149
   IdentityFile ~/.ssh/sotoon_ubuntu_ed25519
   User compute
