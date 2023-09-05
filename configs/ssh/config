@@ -5,7 +5,7 @@ Host github.com
 
 Host git.cafebazaar.ir
   AddKeysToAgent yes
-  IdentityFile ~/.ssh/sotoon_ed25519
+  IdentityFile ~/.ssh/sotoon_gitlab_ed25519
   User git
 
 Host dvh-server
@@ -23,6 +23,11 @@ Host arvancloud
   HostName 188.121.98.65
   IdentityFile ~/.ssh/arvancloud_ed25519
   User ubuntu
+
+Host sotoon-mohammad-dev
+  HostName 86.104.40.37
+  IdentityFile ~/.ssh/sotoon_ocean_ed25519
+  User compute
 
 Host sotoon-ubuntu
   HostName 86.104.40.17
