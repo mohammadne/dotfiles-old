@@ -1,16 +1,33 @@
 # Dotfiles
 
+```txt
+██████╗   ███████╗  ████████╗ ███████╗ ██╗ ██╗      ███████╗ ███████╗
+██╔══██╗ ██╔════██╗ ╚══██╔══╝ ██╔════╝ ██║ ██║      ██╔════╝ ██╔════╝
+██║  ██║ ██║    ██║    ██║    █████╗   ██║ ██║      █████╗   ███████╗
+██║  ██║ ██║    ██║    ██║    ██╔══╝   ██║ ██║      ██╔══╝   ╚════██║
+██████╔╝ ╚███████╔╝    ██║    ██║      ██║ ███████╗ ███████╗ ███████║
+╚═════╝   ╚══════╝     ╚═╝    ╚═╝      ╚═╝ ╚══════╝ ╚══════╝ ╚══════╝
+```
+
+> personal dotfiles configuration files.
+>
+> for more detailed instruction on how to install and customize each tool, checkout its readme file. there is detailed instruction there.
+>
+> if you this repository was helpful, please don't forget to support & star it.
+
 ## Installation
 
-1. create a basic directory structure and clone the dotfiles repository
+> **_NOTE:_** I'm actively working with `Fedora Linux`, so the configurations are written and tested based on it, but I'm open to accept to support for other platforms if you need, please open a [pull request](https://github.com/mohammadne/dotfiles/pulls) based on your prefered platform of choice.
+
+1. Create a basic directory structure and clone the dotfiles repository
 
     ``` bash
-    mkdir -p "$HOME/Documents/Git" && cd "$HOME/Documents/Git"
+    mkdir -p "$HOME/Develop/personal" && cd "$HOME/Develop/personal"
     git clone https://github.com/mohammadne/dotfiles.git && cd ./dotfiles
     git remote set-url origin git@github.com:mohammadne/dotfiles.git
     ```
 
-2. install and configure packages
+2. Install and configure packages
 
     ```bash
     # base packages for having a working system
