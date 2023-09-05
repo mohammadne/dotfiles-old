@@ -29,3 +29,16 @@ function _oc() {
     sudo mv oc /usr/local/bin/
     oc version
 }
+
+# telepresence
+# helmsman
+# kustomize
+# helm
+# kind
+# vagrant
+# terraform
+# ansible
+# operator-sdk
+# sops
+# vault
+# 
