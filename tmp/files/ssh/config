@@ -8,11 +8,14 @@ Host git.cafebazaar.ir
   IdentityFile ~/.ssh/sotoon_gitlab_ed25519
   User git
 
+<<<<<<< HEAD:tmp/files/ssh/config
 Host devopshobbies
   HostName ns320972.ip-37-187-148.eu
   IdentityFile ~/.ssh/devopshobbies_ed25519
   User ubuntu
 
+=======
+>>>>>>> 0beeca3 (update ssh key generation):ssh/config
 Host arvancloud
   HostName 188.121.98.65
   IdentityFile ~/.ssh/arvancloud_ed25519
