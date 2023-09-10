@@ -1,0 +1,20 @@
+- name: TODO
+  package:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  loop:
+    - tmux
+    - tmuxp
+
+- name: todo
+  shell: |
+    ln -s "$SOURCE/files/tmux" "$HOME/.config/tmux"
+
+- name: tmux-plugins
+  shell: |
+    tpm_path="$HOME/.local/share/tmux/plugins/tpm"
+    if [ ! -d "$tpm_path" ]; then
+      git clone https://github.com/tmux-plugins/tpm "$tpm_path"
+    fi
+    "$tpm_path/bin/install_plugins"

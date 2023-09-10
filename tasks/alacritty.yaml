@@ -1,0 +1,11 @@
+- name: TODO
+  package:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  loop:
+    - alacritty
+
+- name: todo
+  shell: |
+    ln -s "$SOURCE/files/alacritty/config.yml" "$HOME/.config/alacritty.yml"

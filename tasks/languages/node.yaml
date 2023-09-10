@@ -1,0 +1,4 @@
+- name: ensure apache is at the latest version
+  packages:
+    name: nodejs
+    state: latest

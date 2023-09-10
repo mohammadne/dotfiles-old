@@ -1,0 +1,14 @@
+- name: Install requirements on Debian based distros
+  package:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  loop:
+    - bat # cat alternative
+    - exa # modern replacement for ls
+    - clipman # clipboard
+    - jq # edit json content
+    - yq # edit yaml content
+    - jless
+    - fd # new find
+    - jwt-cli # work with JSON Web Tokens

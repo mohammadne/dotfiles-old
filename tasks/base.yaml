@@ -1,0 +1,34 @@
+- name: symlink git
+  shell: |
+    ln -s "$SOURCE/files/git" "$HOME/.config/git"
+
+- name: symlink ssh (local)
+  shell: |
+    ln -s "$SOURCE/files/ssh" "$HOME/.ssh"
+
+- name: generate required keys (local)
+  shell: |
+    # Use awk to extract and print unique IdentityFiles
+    identity_files=($(awk '$1 == "IdentityFile" {print $2}' "$ssh_config_file" | sort -u))
+
+    # Check if there are any IdentityFiles found
+    if [ ${#identity_files[@]} -eq 0 ]; then
+      echo "No IdentityFiles found in the SSH config file."
+    fi
+
+    for i in "${!identity_files[@]}"; do
+      filename=$(basename "${identity_files[$i]}")
+      algorithm="${filename##*_}"
+
+      if [ ! -f "$path" ]; then
+        ssh-keygen -t "$algorithm" -f "$HOME/.ssh/$filename" -N "" -C ""
+      fi
+    done
+
+- name: htop
+  shell: |
+    ln -s "$SOURCE/files/htop/htoprc" "$HOME/.config/htop/htoprc"
+
+- name: aria2 (local)
+  shell: |
+    ln -s "$SOURCE/files/aria2" "$HOME/.aria2"
