@@ -17,7 +17,12 @@
 
 ## Installation
 
-> **_NOTE:_** I'm actively working with `Fedora Linux`, so the configurations are written and tested based on it, but I'm open to accept to support for other platforms if you need, please open a [pull request](https://github.com/mohammadne/dotfiles/pulls) based on your prefered platform of choice.
+<p align="center">
+    <img alt="Compatibility" src="https://img.shields.io/badge/works%20on-macos-white?logo=fedora&style=for-the-badge">
+    <img alt="Compatibility" src="https://img.shields.io/badge/works%20on-ubuntu-orange?logo=ubuntu&style=for-the-badge">
+</p>
+
+> **_NOTE:_** I'm actively working with `Fedora` as my preferred personal OS and `Ubuntu` as my server choice, so the configurations are written and tested based on it, but I'm open to accept to support for other platforms if you need, please open a [pull request](https://github.com/mohammadne/dotfiles/pulls) based on your prefered platform of choice.
 
 1. Create a basic directory structure and clone the dotfiles repository
 

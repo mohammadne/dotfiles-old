@@ -1,8 +1,0 @@
-- name: dotfiles
-  hosts: webservers
-  become: yes
-  vars_files: vars/main.yml
-  tasks:
-  - import_tasks: tasks/main.yaml
-  handlers:
-  - import_tasks: handlers/main.yaml

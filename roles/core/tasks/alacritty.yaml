@@ -1,0 +1,22 @@
+# sudo add-apt-repository ppa:aslatter/ppa -y
+
+- name: Add Alacritty repository from PPA and install its signing key
+  ansible.builtin.apt_repository:
+    repo: ppa:aslatter/ppa
+  when: ansible_os_family == 'Debian'
+
+- name: Install the latest version of Alacritty
+  ansible.builtin.package:
+    name:
+      - alacritty
+    state: latest
+
+- name: Create symbolic link for Alacritty config
+  file:
+    src: "{{ repository_path }}/roles/core/files/alacritty/config.yml"
+    dest: "~/.config/alacritty.yml"
+    state: link
+
+# - name: todo
+#   shell: |
+#     ln -s "$SOURCE/files/alacritty/config.yml" "$HOME/.config/alacritty.yml"
