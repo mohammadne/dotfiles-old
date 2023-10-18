@@ -4,11 +4,11 @@
 #     repo: ppa:aslatter/ppa
 #   when: ansible_os_family == 'Debian'
 
-# - name: Install the latest version of Alacritty
-#   ansible.builtin.package:
-#     name:
-#       - alacritty
-#     state: latest
+- name: Install the latest version of Alacritty
+  ansible.builtin.package:
+    name:
+      - alacritty
+    state: latest
 
 - name: Include Common Task in Role
   include_tasks: tasks/common/linker.yaml

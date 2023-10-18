@@ -1,9 +1,9 @@
 ---
-- name: symlink ssh (local)
+- name: symlink ssh
   shell: |
     ln -s "$SOURCE/files/ssh" "$HOME/.ssh"
 
-- name: generate required keys (local)
+- name: generate required keys
   shell: |
     # Use awk to extract and print unique IdentityFiles
     identity_files=($(awk '$1 == "IdentityFile" {print $2}' "$ssh_config_file" | sort -u))
