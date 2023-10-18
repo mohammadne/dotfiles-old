@@ -1,3 +1,4 @@
+---
 - name: download firacode
   shell: |
     font_family="FiraCode"

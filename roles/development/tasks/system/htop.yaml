@@ -1,0 +1,4 @@
+---
+- name: htop
+  shell: |
+    ln -s "$SOURCE/files/htop/htoprc" "$HOME/.config/htop/htoprc"

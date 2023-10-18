@@ -1,7 +1,4 @@
-- name: symlink git
-  shell: |
-    ln -s "$SOURCE/files/git" "$HOME/.config/git"
-
+---
 - name: symlink ssh (local)
   shell: |
     ln -s "$SOURCE/files/ssh" "$HOME/.ssh"
@@ -25,10 +22,3 @@
       fi
     done
 
-- name: htop
-  shell: |
-    ln -s "$SOURCE/files/htop/htoprc" "$HOME/.config/htop/htoprc"
-
-- name: aria2 (local)
-  shell: |
-    ln -s "$SOURCE/files/aria2" "$HOME/.aria2"

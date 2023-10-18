@@ -1,0 +1,4 @@
+---
+- name: aria2 (local)
+  shell: |
+    ln -s "$SOURCE/files/aria2" "$HOME/.aria2"
