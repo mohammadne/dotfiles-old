@@ -1,24 +1,33 @@
 ---
-- name: symlink ssh
-  shell: |
-    ln -s "$SOURCE/files/ssh" "$HOME/.ssh"
+- name: Install the latest version of SSHD
+  ansible.builtin.package:
+    name:
+      - sshd
+    state: latest
 
-- name: generate required keys
-  shell: |
-    # Use awk to extract and print unique IdentityFiles
-    identity_files=($(awk '$1 == "IdentityFile" {print $2}' "$ssh_config_file" | sort -u))
+- name: Symlink SSH
+  include_tasks: tasks/shared/linker.yaml
+  vars:
+    name: "SSH"
+    source: "files/ssh"
+    destination: "{{ ansible_env.HOME }}/.ssh"
 
-    # Check if there are any IdentityFiles found
-    if [ ${#identity_files[@]} -eq 0 ]; then
-      echo "No IdentityFiles found in the SSH config file."
-    fi
+# - name: generate required keys
+#   shell: |
+#     # Use awk to extract and print unique IdentityFiles
+#     identity_files=($(awk '$1 == "IdentityFile" {print $2}' "$ssh_config_file" | sort -u))
 
-    for i in "${!identity_files[@]}"; do
-      filename=$(basename "${identity_files[$i]}")
-      algorithm="${filename##*_}"
+#     # Check if there are any IdentityFiles found
+#     if [ ${#identity_files[@]} -eq 0 ]; then
+#       echo "No IdentityFiles found in the SSH config file."
+#     fi
 
-      if [ ! -f "$path" ]; then
-        ssh-keygen -t "$algorithm" -f "$HOME/.ssh/$filename" -N "" -C ""
-      fi
-    done
+#     for i in "${!identity_files[@]}"; do
+#       filename=$(basename "${identity_files[$i]}")
+#       algorithm="${filename##*_}"
+
+#       if [ ! -f "$path" ]; then
+#         ssh-keygen -t "$algorithm" -f "$HOME/.ssh/$filename" -N "" -C ""
+#       fi
+#     done
 
