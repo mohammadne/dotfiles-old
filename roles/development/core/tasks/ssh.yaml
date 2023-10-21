@@ -1,13 +1,14 @@
 ---
-- name: Install the latest version of SSHD
-  ansible.builtin.package:
-    name:
-      - sshd
-    state: latest
+# - name: Install the latest version of SSHD
+#   ansible.builtin.package:
+#     name:
+#       - sshd
+#     state: latest
 
 - name: Symlink SSH
-  include_tasks: tasks/shared/linker.yaml
+  include_tasks: tasks/linker.yaml
   vars:
+    role: "{{ role_name }}"
     name: "SSH"
     source: "files/ssh"
     destination: "{{ ansible_env.HOME }}/.ssh"

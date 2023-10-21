@@ -11,8 +11,8 @@ function run_play() {
     ansible-playbook $dotfiles_directory/playbook.yaml \
         -i $dotfiles_directory/inventory.ini \
         -e "dotfiles_directory=$dotfiles_directory" \
-        --tags $1
+        --ask-become-pass 
 }
 
-run_play "general,git"
+run_play "git,ssh"
 

@@ -1,6 +1,6 @@
 ---
-- include_tasks: tasks/general/git.yaml
+- include_tasks: git.yaml
   tags: [ git ]
 
-- include_tasks: tasks/general/ssh.yaml
+- include_tasks: ssh.yaml
   tags: [ ssh ]

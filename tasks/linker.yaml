@@ -2,6 +2,7 @@
 - name: Perform variable assertion
   ansible.builtin.assert:
     that:
+      - role is defined
       - name is defined
       - source is defined
       - destination is defined
@@ -10,33 +11,37 @@
 
 - name: Create fullpath from relative source path
   ansible.builtin.set_fact:
-    full_source: "{{ dotfiles_directory }}/{{ source }}"
+    full_source: "{{ dotfiles_directory }}/roles/{{ role }}/{{ source }}"
 
 - name: "Create parent directory for {{ name }} if it's missing"
   ansible.builtin.shell: mkdir -p "$(dirname "$path")"
   environment:
     path: "{{ destination }}"
 
-- name: "Create parent directory for {{ name }} if it's missing"
+# TODO: seperate to multiple tasks
+- name: "Create symlink for {{ name }}"
   ansible.builtin.shell: |
     if [ -e "$destination" ] || [ -d "$destination" ] || [ -L "$destination" ]; then
       # skips if destination points to the correct source path
       if [[ $source = $(readlink "$destination") ]]; then
+        echo "1"
         exit 0
       fi
 
       # backup existing destination path
       if [ $backup ]; then
+        echo "2"
         cp -Rf $destination "$destination.backup" 2> /dev/null
       fi
 
+      echo "3"
       # remove existing destination path
       rm -Rf "$destination"
-
-      ln -s "$source" "$destination"
     fi
+
+    echo "4"
+    ln -s "$source" "$destination"
   environment:
     backup: "{{ backup }}"
     source: "{{ full_source }}"
     destination: "{{ destination }}"
-  register: result
