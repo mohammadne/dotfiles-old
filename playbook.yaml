@@ -4,8 +4,8 @@
   # pre_tasks:
   #   - include_tasks: tasks/clone.yaml
   roles:
-    # - { role: development/alacritty }
-    # - { role: development/core }
-    # - { role: development/tmux }
+    - { role: development/alacritty }
+    - { role: development/core }
+    - { role: development/tmux }
     - { role: development/vim }
-    # - { role: development/zsh }
+    - { role: development/zsh }
