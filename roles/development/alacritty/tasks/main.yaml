@@ -4,15 +4,16 @@
 #     repo: ppa:aslatter/ppa
 #   when: ansible_os_family == 'Debian'
 
-- name: Install the latest version of Alacritty
-  ansible.builtin.package:
-    name:
-      - alacritty
-    state: latest
+# - name: Install the latest version of Alacritty
+#   ansible.builtin.package:
+#     name:
+#       - alacritty
+#     state: latest
 
-- name: Include Common Task in Role
-  include_tasks: tasks/common/linker.yaml
+- name: Symlink Alacritty
+  include_tasks: tasks/linker.yaml
   vars:
+    role: "{{ role_name }}"
     name: "Alacritty"
-    source: "files/alacritty/config.yml"
-    destination: "~/.config/alacritty.yml"
+    source: "files/config.yml"
+    destination: "{{ ansible_env.HOME }}/.config/alacritty.yml"

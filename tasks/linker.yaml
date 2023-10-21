@@ -1,5 +1,5 @@
 ---
-- name: Perform variable assertion
+- name: Perform variable assertion for Linker
   ansible.builtin.assert:
     that:
       - role is defined
