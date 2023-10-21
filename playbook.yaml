@@ -1,7 +1,13 @@
-- name: dotfiles
-  hosts: local
+- hosts: local
   # become: yes
-  ignore_errors: true
+  # pre_tasks:
+  #   - include_tasks: tasks/clone.yaml
+  vars_files: vars/main.yaml
+  tasks:
+  - import_tasks: tasks/main.yaml
+
+- hosts: servers
+  # become: yes
   # pre_tasks:
   #   - include_tasks: tasks/clone.yaml
   vars_files: vars/main.yaml

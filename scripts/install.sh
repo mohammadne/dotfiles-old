@@ -7,12 +7,12 @@ if ! command -v ansible &> /dev/null; then
     exit 1
 fi
 
-function a() {
+function run_play() {
     ansible-playbook $dotfiles_directory/playbook.yaml \
         -i $dotfiles_directory/inventory.ini \
         -e "dotfiles_directory=$dotfiles_directory" \
         --tags $1
 }
 
-a "general,git"
+run_play "general,git"
 

@@ -1,0 +1,24 @@
+Host github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/github_ed25519
+  User git
+
+Host git.cafebazaar.ir
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/sotoon_gitlab_ed25519
+  User git
+
+Host devopshobbies
+  HostName ns320972.ip-37-187-148.eu
+  IdentityFile ~/.ssh/devopshobbies_ed25519
+  User ubuntu
+
+Host arvancloud
+  HostName 188.121.98.65
+  IdentityFile ~/.ssh/arvancloud_ed25519
+  User ubuntu
+
+Host mohammadne-dev
+  HostName 86.104.40.37
+  IdentityFile ~/.ssh/sotoon_ocean_ed25519
+  User compute

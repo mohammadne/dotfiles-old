@@ -1,3 +1,0 @@
----
-- import_tasks: tasks/general/main.yaml
-  tags: [ general ]
