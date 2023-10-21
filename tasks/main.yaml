@@ -1,3 +1,3 @@
 ---
-- include_tasks: tasks/general/git.yaml
+- import_tasks: tasks/general/main.yaml
   tags: [ general ]
