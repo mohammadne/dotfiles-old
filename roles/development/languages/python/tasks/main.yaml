@@ -3,6 +3,9 @@
   packages:
     name: python3
     state: latest
+# python-pip
+# python -m pip install --upgrade pip # install pip package manager
+# pip install --upgrade autopep8
 
 - name: Install requirements on Debian based distros
   shell: |
