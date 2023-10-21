@@ -1,4 +1,0 @@
----
-- name: symlink git
-  shell: |
-    ln -s "$SOURCE/files/git" "$HOME/.config/git"

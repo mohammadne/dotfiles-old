@@ -1,0 +1,13 @@
+---
+- name: Install the latest version of Git
+  ansible.builtin.package:
+    name:
+      - git
+    state: latest
+
+- name: Symlink git
+  include_tasks: tasks/shared/linker.yaml
+  vars:
+    name: "Git"
+    source: "files/git"
+    destination: "{{ ansible_env.HOME }}/.config/git"

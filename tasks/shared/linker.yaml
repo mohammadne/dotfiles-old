@@ -1,0 +1,42 @@
+---
+- name: Perform variable assertion
+  ansible.builtin.assert:
+    that:
+      - name is defined
+      - source is defined
+      - destination is defined
+    fail_msg: "One or more variables are not defined, but they should be."
+  ignore_errors: false
+
+- name: Create fullpath from relative source path
+  ansible.builtin.set_fact:
+    full_source: "{{ dotfiles_directory }}/{{ source }}"
+
+- name: "Create parent directory for {{ name }} if it's missing"
+  ansible.builtin.shell: mkdir -p "$(dirname "$path")"
+  environment:
+    path: "{{ destination }}"
+
+- name: "Create parent directory for {{ name }} if it's missing"
+  ansible.builtin.shell: |
+    if [ -e "$destination" ] || [ -d "$destination" ] || [ -L "$destination" ]; then
+      # skips if destination points to the correct source path
+      if [[ $source = $(readlink "$destination") ]]; then
+        exit 0
+      fi
+
+      # backup existing destination path
+      if [ $backup ]; then
+        cp -Rf $destination "$destination.backup" 2> /dev/null
+      fi
+
+      # remove existing destination path
+      rm -Rf "$destination"
+
+      ln -s "$source" "$destination"
+    fi
+  environment:
+    backup: "{{ backup }}"
+    source: "{{ full_source }}"
+    destination: "{{ destination }}"
+  register: result
