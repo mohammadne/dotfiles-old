@@ -6,5 +6,6 @@
   roles:
     # - { role: development/alacritty }
     # - { role: development/core }
-    - { role: development/tmux }
+    # - { role: development/tmux }
+    - { role: development/vim }
     # - { role: development/zsh }

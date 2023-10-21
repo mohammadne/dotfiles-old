@@ -1,17 +1,24 @@
 ---
-- name: TODO
-  package:
-    name: "{{ item }}"
-    state: latest
-    update_cache: yes
-  loop:
-    - vim
+# - name: install dependencies
+#   package:
+#     name: "{{ item }}"
+#     state: latest
+#     update_cache: yes
+#   loop:
+#     - curl
+#     - vim
 
-- name: todo
-  shell: |
-    ln -s "$SOURCE/files/vim/vimrc" "$HOME/.vimrc"
+- name: Symlink vimrc
+  include_tasks: tasks/linker.yaml
+  vars:
+    role: "{{ role_name }}"
+    name: "VIM"
+    source: "files/vimrc"
+    destination: "{{ ansible_env.HOME }}/.vimrc"
 
-- name: todo
+# TODO: skip like tmux if it's already cloned
+# TODO: press Enter for running PlugInstall for the first-time
+- name: install plugins
   shell: |
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim +PlugInstall +qa || echo "Something went wrong installing vim plugins."
