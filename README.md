@@ -9,7 +9,7 @@
 ╚═════╝   ╚══════╝     ╚═╝    ╚═╝      ╚═╝ ╚══════╝ ╚══════╝ ╚══════╝
 ```
 
-> personal dotfiles configuration files.
+> Configuration files and tools for configuring rich systems.
 >
 > for more detailed instruction on how to install and customize each tool, checkout its readme file. there is detailed instruction there.
 >
@@ -17,10 +17,9 @@
 
 ## Installation
 
-![Fedora Compatibility](https://img.shields.io/badge/works%20on-fedora-white?logo=fedora&style=for-the-badge)
 ![Ubuntu Compatibility](https://img.shields.io/badge/works%20on-ubuntu-white?logo=ubuntu&style=for-the-badge)
 
-> **_NOTE:_** I'm actively working with `Fedora` as my preferred personal OS and `Ubuntu` as my server choice, so the configurations are written and tested based on it, but I'm open to accept to support for other platforms if you need, please open a [pull request](https://github.com/mohammadne/dotfiles/pulls) based on your prefered platform of choice.
+> **_NOTE:_** I'm using Ubuntu as my personal OS (latest version for my desktop and latest LTS version for my server) and this dotfile is written and tested based on it.
 
 ``` bash
 # Specify dotfiles destination (change it according to your preferred choice)
